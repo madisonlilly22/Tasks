@@ -1,0 +1,90 @@
+Last login: Tue Jan 26 15:55:46 on ttys000
+madisonlilly@Madisons-MacBook-Air ~ % cd ~/Desktop
+madisonlilly@Madisons-MacBook-Air Desktop % mkdir Evolution
+madisonlilly@Madisons-MacBook-Air Desktop % cd Evolution
+madisonlilly@Madisons-MacBook-Air Evolution % mkdir Tasks
+madisonlilly@Madisons-MacBook-Air Evolution % cd Tasks
+madisonlilly@Madisons-MacBook-Air Tasks % mkdir Task_01
+madisonlilly@Madisons-MacBook-Air Tasks % cd Task_01
+madisonlilly@Madisons-MacBook-Air Task_01 % touch task01.r  
+madisonlilly@Madisons-MacBook-Air Task_01 % cd ..
+madisonlilly@Madisons-MacBook-Air Tasks % git init
+Initialized empty Git repository in /Users/madisonlilly/Desktop/Evolution/Tasks/.git/
+madisonlilly@Madisons-MacBook-Air Tasks % cd ~/Desktop/Evolution/Tasks
+madisonlilly@Madisons-MacBook-Air Tasks % git add -A
+madisonlilly@Madisons-MacBook-Air Tasks % git commit -m "Madison Task 01 upload a"
+[master (root-commit) f5b6641] Madison Task 01 upload a
+ Committer: Madison Lilly <madisonlilly@Madisons-MacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 2 insertions(+)
+ create mode 100644 .DS_Store
+ create mode 100644 Task_01/task01.R
+madisonlilly@Madisons-MacBook-Air Tasks % git config --global user.email "mal0042@mix.wvu.edu"
+madisonlilly@Madisons-MacBook-Air Tasks % git config --global user.name "madisonlilly22"
+\%                                                                              madisonlilly@Madisons-MacBook-Air Tasks % ls
+Task_01
+madisonlilly@Madisons-MacBook-Air Tasks % git add -A
+madisonlilly@Madisons-MacBook-Air Tasks % git commit -m "test"
+On branch master
+nothing to commit, working tree clean
+madisonlilly@Madisons-MacBook-Air Tasks % ls
+Task_01
+madisonlilly@Madisons-MacBook-Air Tasks % git push -u origin 
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+madisonlilly@Madisons-MacBook-Air Tasks % git push --set-upstream origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+madisonlilly@Madisons-MacBook-Air Tasks % ls
+Task_01
+madisonlilly@Madisons-MacBook-Air Tasks % ls
+Task_01
+madisonlilly@Madisons-MacBook-Air Tasks % git remote set-url origin https://github.com/madisonlilly22/Tasks.git
+fatal: No such remote 'origin'
+madisonlilly@Madisons-MacBook-Air Tasks % git remote add origin https://github.com/madisonlilly22/Tasks.git
+madisonlilly@Madisons-MacBook-Air Tasks % git add -A
+madisonlilly@Madisons-MacBook-Air Tasks % git commit -m "test"
+[master 63a2a0c] test
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+madisonlilly@Madisons-MacBook-Air Tasks % git push -u
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+madisonlilly@Madisons-MacBook-Air Tasks % git push --set-upstream origin master
+Username for 'https://github.com': madisonlilly22
+Password for 'https://madisonlilly22@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/madisonlilly22/Tasks.git/'
+madisonlilly@Madisons-MacBook-Air Tasks % git push --set-upstream origin master
+Username for 'https://github.com': madisonlilly22
+Password for 'https://madisonlilly22@github.com': 
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (10/10), 1.03 KiB | 1.03 MiB/s, done.
+Total 10 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/madisonlilly22/Tasks.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+madisonlilly@Madisons-MacBook-Air Tasks %   
