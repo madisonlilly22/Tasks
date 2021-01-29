@@ -168,3 +168,7 @@ data(mtcars)
 ?boxplot
 boxplot(formula= mpg ~ cyl, data= mtcars)
 hist(mtcars$mpg)
+cd ~ /Desktop/Evolution/Tasks
+git add -A
+git commit -m "<Madison" Task 01 upload c"
+git push -u origin master

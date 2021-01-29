@@ -1,0 +1,528 @@
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.73 (7892) x86_64-apple-darwin17.0]
+
+[Workspace restored from /Users/madisonlilly/.RData]
+[History restored from /Users/madisonlilly/.Rapp.history]
+
+2021-01-27 18:29:27.448 R[20861:5808780] +[NSSavePanel _warmUp] attempted warmup
+> library ( swirl )
+
+| Hi! I see that you have some variables saved in your workspace. To keep
+| things running smoothly, I recommend you clean up before starting swirl.
+
+| Type ls() to see a list of the variables in your workspace. Then, type
+| rm(list=ls()) to clear your workspace.
+
+| Type swirl() when you are ready to begin.
+
+> swirl ()
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same
+| name as you did then. If you are new, call yourself something unique.
+
+What shall I call you? Madison
+
+| Would you like to continue with one of these lessons?
+
+1: R Programming Basic Building Blocks
+2: No. Let me start something new.
+
+Selection: 2
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: R Programming
+2: Take me to the swirl course repository!
+
+Selection: 1
+
+| Please choose a lesson, or type 0 to return to course menu.
+
+ 1: Basic Building Blocks      2: Workspace and Files     
+ 3: Sequences of Numbers       4: Vectors                 
+ 5: Missing Values             6: Subsetting Vectors      
+ 7: Matrices and Data Frames   8: Logic                   
+ 9: Functions                 10: lapply and sapply       
+11: vapply and tapply         12: Looking at Data         
+13: Simulation                14: Dates and Times         
+15: Base Graphics             
+
+Selection: 2
+  |                                                                     |   0%
+
+| In this lesson, you'll learn how to examine your local workspace in R and
+| begin to explore the relationship between your workspace and the file system
+| of your machine.
+
+...
+  |==                                                                   |   3%
+| Because different operating systems have different conventions with regards
+| to things like file paths, the outputs of these commands may vary across
+| machines.
+
+...
+  |====                                                                 |   5%
+| However it's important to note that R provides a common API (a common set of
+| commands) for interacting with files, that way your code will work across
+| different kinds of computers.
+
+...
+  |=====                                                                |   8%
+| Let's jump right in so you can get a feel for how these special functions
+| work!
+
+...
+  |=======                                                              |  10%
+| Determine which directory your R session is using as its current working
+| directory using getwd().
+
+> getwd()
+[1] "/Users/madisonlilly"
+
+| All that hard work is paying off!
+  |=========                                                            |  13%
+| List all the objects in your local workspace using ls().
+
+> ls( desk, bed, pencil, paper, laptop)
+Error in ls(desk, bed, pencil, paper, laptop) : object 'pencil' not found
+In addition: Warning message:
+In ls(desk, bed, pencil, paper, laptop) :
+  ‘desk’ converted to character string
+> ls()
+[1] "my_div"  "my_sqrt" "x"       "y"       "z"      
+
+| You are quite good my friend!
+  |===========                                                          |  15%
+| Some R commands are the same as their equivalents commands on Linux or on a
+| Mac. Both Linux and Mac operating systems are based on an operating system
+| called Unix. It's always a good idea to learn more about Unix!
+
+...
+  |============                                                         |  18%
+| Assign 9 to x using x <- 9.
+
+> x <-9
+
+| Excellent job!
+  |==============                                                       |  21%
+| Now take a look at objects that are in your workspace using ls().
+
+> ls(desk, laptop, pencil, notebook)
+Error in ls(desk, laptop, pencil, notebook) : object 'pencil' not found
+In addition: Warning message:
+In ls(desk, laptop, pencil, notebook) :
+  ‘desk’ converted to character string
+> ls()
+[1] "my_div"  "my_sqrt" "x"       "y"       "z"      
+
+| All that practice is paying off!
+  |================                                                     |  23%
+| List all the files in your working directory using list.files() or dir().
+
+> list.files()
+ [1] "Applications" "Desktop"      "Documents"    "Downloads"    "Evolution"   
+ [6] "Library"      "Movies"       "Music"        "Pictures"     "Public"      
+[11] "Tasks"       
+
+| Perseverance, that's the answer.
+  |==================                                                   |  26%
+| As we go through this lesson, you should be examining the help page for each
+| new function. Check out the help page for list.files with the command
+| ?list.files.
+
+> ?list.files
+starting httpd help server ... done
+
+| Excellent job!
+  |===================                                                  |  28%
+| One of the most helpful parts of any R help file is the See Also section.
+| Read that section for list.files. Some of these functions may be used in
+| later portions of this lesson.
+
+...
+  |=====================                                                |  31%
+| Using the args() function on a function name is also a handy way to see what
+| arguments a function can take.
+
+...
+  |=======================                                              |  33%
+| Use the args() function to determine the arguments to list.files().
+
+> args()
+Error in args() : argument "name" is missing, with no default
+> args(list.files())
+NULL
+
+| Not quite right, but keep trying. Or, type info() for more options.
+
+| Type args(list.files) to see the arguments to list.files.
+
+> args(list.files)
+function (path = ".", pattern = NULL, all.files = FALSE, full.names = FALSE, 
+    recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, 
+    no.. = FALSE) 
+NULL
+
+| You are amazing!
+  |=========================                                            |  36%
+| Assign the value of the current working directory to a variable called
+| "old.dir".
+
+> old.fir
+Error: object 'old.fir' not found
+> old.dir
+Error: object 'old.dir' not found
+> "old.dir"
+[1] "old.dir"
+
+| Almost! Try again. Or, type info() for more options.
+
+| Type old.dir <- getwd() to assign the value of the current working directory
+| to a variable called "old.dir".
+
+> old.dir <- getwd()
+
+| Excellent work!
+  |===========================                                          |  38%
+| We will use old.dir at the end of this lesson to move back to the place that
+| we started. A lot of query functions like getwd() have the useful property
+| that they return the answer to the question as a result of the function.
+
+...
+  |============================                                         |  41%
+| Use dir.create() to create a directory in the current working directory
+| called "testdir".
+
+> dir.create()
+Error in dir.create() : argument "path" is missing, with no default
+> dir.create(testdir)
+Error in dir.create(testdir) : object 'testdir' not found
+> dir.create()
+Error in dir.create() : argument "path" is missing, with no default
+> dir.create() <- getwd()
+Error in dir.create() <- getwd() : invalid (NULL) left side of assignment
+> testdir <- getwd()
+
+| Give it another try. Or, type info() for more options.
+
+| Type dir.create("testdir") to create a directory in the current working
+| directory called "testdir".
+
+> dir.create("testdir")
+
+| You're the best!
+  |==============================                                       |  44%
+| We will do all our work in this new directory and then delete it after we
+| are done. This is the R analog to "Take only pictures, leave only
+| footprints."
+
+...
+  |================================                                     |  46%
+| Set your working directory to "testdir" with the setwd() command.
+
+> setwd()
+Error in setwd() : argument "dir" is missing, with no default
+> setwd("testdir")
+
+| That's a job well done!
+  |==================================                                   |  49%
+| In general, you will want your working directory to be someplace sensible,
+| perhaps created for the specific project that you are working on. In fact,
+| organizing your work in R packages using RStudio is an excellent option.
+| Check out RStudio at http://www.rstudio.com/
+
+...
+  |===================================                                  |  51%
+| Create a file in your working directory called "mytest.R" using the
+| file.create() function.
+
+> file.create("mytest.R")
+[1] TRUE
+
+| You got it!
+  |=====================================                                |  54%
+| This should be the only file in this newly created directory. Let's check
+| this by listing all the files in the current directory.
+
+> 
+> list.files("mytest.R")
+character(0)
+
+| Not quite! Try again. Or, type info() for more options.
+
+| list.files() shows that the directory only contains mytest.R.
+
+> list.files()
+[1] "mytest.R"
+
+| Your dedication is inspiring!
+  |=======================================                              |  56%
+| Check to see if "mytest.R" exists in the working directory using the
+| file.exists() function.
+
+> file.exists()
+Error in file.exists() : invalid 'file' argument
+> file.exists("mytest.R")
+[1] TRUE
+
+| That's the answer I was looking for.
+  |=========================================                            |  59%
+| These sorts of functions are excessive for interactive use. But, if you are
+| running a program that loops through a series of files and does some
+| processing on each one, you will want to check to see that each exists
+| before you try to process it.
+
+...
+  |==========================================                           |  62%
+| Access information about the file "mytest.R" by using file.info().
+
+> file.info("mytest.R")
+         size isdir mode               mtime               ctime
+mytest.R    0 FALSE  644 2021-01-27 19:26:49 2021-01-27 19:26:49
+                       atime uid gid        uname grname
+mytest.R 2021-01-27 19:26:49 501  20 madisonlilly  staff
+
+| You are quite good my friend!
+  |============================================                         |  64%
+| You can use the $ operator --- e.g., file.info("mytest.R")$mode --- to grab
+| specific items.
+
+...
+  |==============================================                       |  67%
+| Change the name of the file "mytest.R" to "mytest2.R" by using
+| file.rename().
+
+> file.rename("mytest.R")
+Error in file.rename("mytest.R") : 
+  argument "to" is missing, with no default
+> file.rename("mytest2.R")
+Error in file.rename("mytest2.R") : 
+  argument "to" is missing, with no default
+> file.rename ("mytest2.R")
+Error in file.rename("mytest2.R") : 
+  argument "to" is missing, with no default
+> file.rename("mytest2.R")
+Error in file.rename("mytest2.R") : 
+  argument "to" is missing, with no default
+> file.rename
+function (from, to) 
+.Internal(file.rename(from, to))
+<bytecode: 0x7fb80862a288>
+<environment: namespace:base>
+
+| Give it another try. Or, type info() for more options.
+
+| file.rename("mytest.R", "mytest2.R") is the answer. Googling using key words
+| from the question, along with the letter R, will often give you a good hint.
+
+> file.rename("mytest.R", "mytest2.R")
+[1] TRUE
+
+| Keep working like that and you'll get there!
+  |================================================                     |  69%
+| Your operating system will provide simpler tools for these sorts of tasks,
+| but having the ability to manipulate files programatically is useful. You
+| might now try to delete mytest.R using file.remove('mytest.R'), but that
+| won't work since mytest.R no longer exists. You have already renamed it.
+
+...
+  |==================================================                   |  72%
+| Make a copy of "mytest2.R" called "mytest3.R" using file.copy().
+
+> file.copy("mytest2.R", "mytest3.R")
+[1] TRUE
+
+| You nailed it! Good job!
+  |===================================================                  |  74%
+| You now have two files in the current directory. That may not seem very
+| interesting. But what if you were working with dozens, or millions, of
+| individual files? In that case, being able to programatically act on many
+| files would be absolutely necessary. Don't forget that you can, temporarily,
+| leave the lesson by typing play() and then return by typing nxt().
+
+...
+  |=====================================================                |  77%
+| Provide the relative path to the file "mytest3.R" by using file.path().
+
+> file.path("mytest3.R")
+[1] "mytest3.R"
+
+| All that practice is paying off!
+  |=======================================================              |  79%
+| You can use file.path to construct file and directory paths that are
+| independent of the operating system your R code is running on. Pass
+| 'folder1' and 'folder2' as arguments to file.path to make a
+| platform-independent pathname.
+
+> file.path('folder1','folder2')
+[1] "folder1/folder2"
+
+| You nailed it! Good job!
+  |=========================================================            |  82%
+| Take a look at the documentation for dir.create by entering ?dir.create .
+| Notice the 'recursive' argument. In order to create nested directories,
+| 'recursive' must be set to TRUE.
+
+> ?dir.create
+
+| You got it right!
+  |==========================================================           |  85%
+| Create a directory in the current working directory called "testdir2" and a
+| subdirectory for it called "testdir3", all in one command by using
+| dir.create() and file.path().
+
+> dir.create("testdir2"), file.path("testdir3")
+Error: unexpected ',' in "dir.create("testdir2"),"
+> dir.create("testdir2")file.path("testdir3")
+Error: unexpected symbol in "dir.create("testdir2")file.path"
+> dir.create("testdir2") file.path("testdir3")
+Error: unexpected symbol in "dir.create("testdir2") file.path"
+> dir.create() file.path()
+Error: unexpected symbol in "dir.create() file.path"
+> dir.create("testdir2")file.path("testdir3")
+Error: unexpected symbol in "dir.create("testdir2")file.path"
+> ir.create("testdir2") and file.path("testdir3")
+Error: unexpected symbol in "ir.create("testdir2") and"
+> dir.create("testdir2") and file.path("testdir3")
+Error: unexpected symbol in "dir.create("testdir2") and"
+> help
+function (topic, package = NULL, lib.loc = NULL, verbose = getOption("verbose"), 
+    try.all.packages = getOption("help.try.all.packages"), help_type = getOption("help_type")) 
+{
+    types <- c("text", "html", "pdf")
+    help_type <- if (!length(help_type)) 
+        "text"
+    else match.arg(tolower(help_type), types)
+    if (!missing(package)) 
+        if (is.name(y <- substitute(package))) 
+            package <- as.character(y)
+    if (missing(topic)) {
+        if (!is.null(package)) {
+            if (interactive() && help_type == "html") {
+                port <- tools::startDynamicHelp(NA)
+                if (port <= 0L) 
+                  return(library(help = package, lib.loc = lib.loc, 
+                    character.only = TRUE))
+                browser <- if (.Platform$GUI == "AQUA") {
+                  get("aqua.browser", envir = as.environment("tools:RGUI"))
+                }
+                else getOption("browser")
+                browseURL(paste0("http://127.0.0.1:", port, "/library/", 
+                  package, "/html/00Index.html"), browser)
+                return(invisible())
+            }
+            else return(library(help = package, lib.loc = lib.loc, 
+                character.only = TRUE))
+        }
+        if (!is.null(lib.loc)) 
+            return(library(lib.loc = lib.loc))
+        topic <- "help"
+        package <- "utils"
+        lib.loc <- .Library
+    }
+    ischar <- tryCatch(is.character(topic) && length(topic) == 
+        1L, error = function(e) FALSE)
+    if (!ischar) {
+        reserved <- c("TRUE", "FALSE", "NULL", "Inf", "NaN", 
+            "NA", "NA_integer_", "NA_real_", "NA_complex_", "NA_character_")
+        stopic <- deparse1(substitute(topic))
+        if (!is.name(substitute(topic)) && !stopic %in% reserved) 
+            stop("'topic' should be a name, length-one character vector or reserved word")
+        topic <- stopic
+    }
+    paths <- index.search(topic, find.package(if (is.null(package)) 
+        loadedNamespaces()
+    else package, lib.loc, verbose = verbose))
+    try.all.packages <- !length(paths) && is.logical(try.all.packages) && 
+        !is.na(try.all.packages) && try.all.packages && is.null(package) && 
+        is.null(lib.loc)
+    if (try.all.packages) {
+        for (lib in .libPaths()) {
+            packages <- .packages(TRUE, lib)
+            packages <- packages[is.na(match(packages, .packages()))]
+            paths <- c(paths, index.search(topic, file.path(lib, 
+                packages)))
+        }
+        paths <- paths[nzchar(paths)]
+    }
+    structure(unique(paths), call = match.call(), topic = topic, 
+        tried_all_packages = try.all.packages, type = help_type, 
+        class = "help_files_with_topic")
+}
+<bytecode: 0x7fb82f7379e8>
+<environment: namespace:utils>
+
+| Nice try, but that's not exactly what I was hoping for. Try again. Or, type
+| info() for more options.
+
+| dir.create(file.path('testdir2', 'testdir3'), recursive = TRUE) will do the
+| trick. If you forgot the recursive argument, the command may have appeared
+| to work, but it didn't create the nested directory.
+
+> dir.create(file.path('testdir2', 'testdir3')
++ ,recursive-TRUE)
+Error in dir.create(file.path("testdir2", "testdir3"), recursive - TRUE) : 
+  object 'recursive' not found
+> dir.create(file.path('testdir2', 'testdir3'), recursive = TRUE)
+
+| Keep up the great work!
+  |============================================================         |  87%
+| Go back to your original working directory using setwd(). (Recall that we
+| created the variable old.dir with the full path for the orginal working
+| directory at the start of these questions.)
+
+> setwd()
+Error in setwd() : argument "dir" is missing, with no default
+> setwd(old.dir)
+
+| You are quite good my friend!
+  |==============================================================       |  90%
+| It is often helpful to save the settings that you had before you began an
+| analysis and then go back to them at the end. This trick is often used
+| within functions; you save, say, the par() settings that you started with,
+| mess around a bunch, and then set them back to the original values at the
+| end. This isn't the same as what we have done here, but it seems similar
+| enough to mention.
+
+...
+  |================================================================     |  92%
+| After you finish this lesson delete the 'testdir' directory that you just
+| left (and everything in it)
+
+...
+  |=================================================================    |  95%
+| Take nothing but results. Leave nothing but assumptions. That sounds like
+| 'Take nothing but pictures. Leave nothing but footprints.' But it makes no
+| sense! Surely our readers can come up with a better motto . . .
+
+...
+  |===================================================================  |  97%
+| In this lesson, you learned how to examine your R workspace and work with
+| the file system of your machine from within R. Thanks for playing!
+
+...
+  |=====================================================================| 100%
+| Would you like to receive credit for completing this course on Coursera.org?
+
+1: Yes
+2: No
+
+Selection: 
