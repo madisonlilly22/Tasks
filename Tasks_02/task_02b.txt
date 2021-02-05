@@ -1,0 +1,551 @@
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.73 (7892) x86_64-apple-darwin17.0]
+
+[Workspace restored from /Users/madisonlilly/.RData]
+[History restored from /Users/madisonlilly/.Rapp.history]
+
+2021-02-02 16:07:24.753 R[34689:6966818] +[NSSavePanel _warmUp] attempted warmup
+> setwd('~/Desktop/Evolution/Tasks/Tasks_02')
+> Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
+> write.csv(Data, 'rawdata.csv', quote=F)
+> length(data)
+[1] 1
+> nrow(Data)
+[1] 1356
+> ncol(Data)
+[1] 12
+> colnames(Data)
+ [1] "year"         "month"        "day"          "dotw"         "start_hour"  
+ [6] "start_minute" "end_hour"     "end_minute"   "event"        "value"       
+[11] "units"        "caregiver"   
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+4                    ap
+5                    ap
+6   1.5    oz        ap
+> Data[1,]
+  year month day     dotw start_hour start_minute end_hour end_minute event
+1 2019     4  18 Thursday         11           53       NA         NA birth
+  value units caregiver
+1                   kch
+> Data[2,]
+  year month day   dotw start_hour start_minute end_hour end_minute event
+2 2019    10  18 Friday          7           50       NA         NA   wet
+  value units caregiver
+2                    ap
+> Data[1:3,]
+  year month day     dotw start_hour start_minute end_hour end_minute event
+1 2019     4  18 Thursday         11           53       NA         NA birth
+2 2019    10  18   Friday          7           50       NA         NA   wet
+3 2019    10  18   Friday         10            0       NA         NA   wet
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+> Data[1:3, 4]
+[1] "Thursday" "Friday"   "Friday"  
+> Data[1:5, 1:3]
+  year month day
+1 2019     4  18
+2 2019    10  18
+3 2019    10  18
+4 2019    10  18
+5 2019    10  18
+> Feeds <- which(Data[,9] == 'bottle')
+> berenMilk <- Data[Feeds ,]
+> head(berenMilk)
+   year month day     dotw start_hour start_minute end_hour end_minute  event
+6  2019    10  18   Friday          8           20       NA         NA bottle
+7  2019    10  18   Friday         10           40       NA         NA bottle
+8  2019    10  18   Friday         12           30       NA         NA bottle
+9  2019    10  18   Friday         14           53       NA         NA bottle
+20 2019    10  17 Thursday          9            8       NA         NA bottle
+21 2019    10  17 Thursday         11            5       NA         NA bottle
+   value units caregiver
+6    1.5    oz        ap
+7    2.5    oz        ap
+8      2    oz        ap
+9      2    oz        ap
+20     3    oz      vona
+21     2    oz      vona
+> Feeds <- which(Data[, 'event'] == 'bottle')
+> Feeds <- which (Data$event == 'bottle')
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collpase= '-'))
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> Data$age <- dateID - dateID[which(Data$event == 'birth')]
+Error in `$<-.data.frame`(`*tmp*`, age, value = c(`2019 -` = NA_real_,  : 
+  replacement has 4068 rows, data has 1356
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+4                    ap
+5                    ap
+6   1.5    oz        ap
+> Data$age <- dateID - dateID [which(Data$event == 'birth')]
+Error in `$<-.data.frame`(`*tmp*`, age, value = c(`2019 -` = NA_real_,  : 
+  replacement has 4068 rows, data has 1356
+> beren2 <- Data
+> beren3 <- beren2[order(beren2$age),]
+Error in order(beren2$age) : argument 1 is not a vector
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+4                    ap
+5                    ap
+6   1.5    oz        ap
+> beren2 <- Data
+> order(age)
+Error in order(age) : object 'age' not found
+> order("age")
+[1] 1
+> beren3 <- beren2[order(beren2$age),]
+Error in order(beren2$age) : argument 1 is not a vector
+> Data$age <- dateID - dateID[which(Data$event== 'birth')]
+Error in `$<-.data.frame`(`*tmp*`, age, value = c(`2019 -` = NA_real_,  : 
+  replacement has 4068 rows, data has 1356
+> beren3 <- beren2[order(beren2$age),]
+Error in order(beren2$age) : argument 1 is not a vector
+> beren3 <- beren2[order(beren2$age) ,]
+Error in order(beren2$age) : argument 1 is not a vector
+> setwd('~/Desktop/Evolution/Tasks/Tasks_02')
+> Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
+> write.csv(Data, 'rawdata.csv', quote=F)
+> length(data)
+[1] 1
+> nrow(Data)
+[1] 1356
+> ncol(Data)
+[1] 12
+> colnames(Data)
+ [1] "year"         "month"        "day"          "dotw"         "start_hour"  
+ [6] "start_minute" "end_hour"     "end_minute"   "event"        "value"       
+[11] "units"        "caregiver"   
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+4                    ap
+5                    ap
+6   1.5    oz        ap
+> Data[1,]
+  year month day     dotw start_hour start_minute end_hour end_minute event
+1 2019     4  18 Thursday         11           53       NA         NA birth
+  value units caregiver
+1                   kch
+> Data[2,]
+  year month day   dotw start_hour start_minute end_hour end_minute event
+2 2019    10  18 Friday          7           50       NA         NA   wet
+  value units caregiver
+2                    ap
+> Data[1:3,]
+  year month day     dotw start_hour start_minute end_hour end_minute event
+1 2019     4  18 Thursday         11           53       NA         NA birth
+2 2019    10  18   Friday          7           50       NA         NA   wet
+3 2019    10  18   Friday         10            0       NA         NA   wet
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+> Data[1:3, 4]
+[1] "Thursday" "Friday"   "Friday"  
+> Data[1:5, 1:3]
+  year month day
+1 2019     4  18
+2 2019    10  18
+3 2019    10  18
+4 2019    10  18
+5 2019    10  18
+> Feeds <- which(Data[,9] == 'bottle')
+> berenMilk <- Data[Feeds ,]
+> head(berenMilk)
+   year month day     dotw start_hour start_minute end_hour end_minute  event
+6  2019    10  18   Friday          8           20       NA         NA bottle
+7  2019    10  18   Friday         10           40       NA         NA bottle
+8  2019    10  18   Friday         12           30       NA         NA bottle
+9  2019    10  18   Friday         14           53       NA         NA bottle
+20 2019    10  17 Thursday          9            8       NA         NA bottle
+21 2019    10  17 Thursday         11            5       NA         NA bottle
+   value units caregiver
+6    1.5    oz        ap
+7    2.5    oz        ap
+8      2    oz        ap
+9      2    oz        ap
+20     3    oz      vona
+21     2    oz      vona
+> Feeds <- which(Data[, 'event'] == 'bottle')
+> Feeds <- which (Data$event == 'bottle')
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collpase= '-'))
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> Data$age <- dateID - dateID[which(Data$event == 'birth')]
+Error in `$<-.data.frame`(`*tmp*`, age, value = c(`2019 -` = NA_real_,  : 
+  replacement has 4068 rows, data has 1356
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver
+1                   kch
+2                    ap
+3                    ap
+4                    ap
+5                    ap
+6   1.5    oz        ap
+> beren2 <- Data
+> beren3 <- beren2[order(beren2$age),]
+Error in order(beren2$age) : argument 1 is not a vector
+> write.csv(beren3 , 'beren_new.csv' , quote=F, row.names=FALSE)
+Error in is.data.frame(x) : object 'beren3' not found
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> Data$age <- dateID - dateID[which(Data$event == 'birth')]
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver age
+1                   kch   0
+2                    ap 183
+3                    ap 183
+4                    ap 183
+5                    ap 183
+6   1.5    oz        ap 183
+> beren2 <- Data
+> beren3 <- beren2[order(beren2$age),]
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collpse= '-'))
+> dayID[1]
+[1] "2019 -"
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collpse= '-'))
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> dateID[1]
+2019 - 
+    NA 
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> dayID[1]
+[1] "2019 -"
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> Data$age <- dateID - dateID[which(Data$event == 'birth')]
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver age
+1                   kch   0
+2                    ap 183
+3                    ap 183
+4                    ap 183
+5                    ap 183
+6   1.5    oz        ap 183
+> beren2 <- Data
+> beren3 <- beren2[order(beren2$age),]
+> write.csv(beren3 , 'beren_new.csv' , quote=F, row.names=FALSE)
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver age
+1                   kch   0
+2                    ap 183
+3                    ap 183
+4                    ap 183
+5                    ap 183
+6   1.5    oz        ap 183
+> cd ~/Desktop/Evolution/Tasks
+Error: unexpected '/' in "cd ~/"
+> cd ~ /Desktop/Evolution/Tasks
+Error: unexpected '/' in "cd ~ /"
+> cd ~ / Desktop/Evolution/Tasks
+Error: unexpected '/' in "cd ~ /"
+> cd ~ /Desktop/Evolution/Tasks
+Error: unexpected '/' in "cd ~ /"
+> cd~/Desktop/Evolution/Tasks
+Error: unexpected '/' in "cd~/"
+> Feeds <- which(beren3$event =="bottle")
+> avgMilk <- mean(beren3$value[Feeds])
+Warning message:
+In mean.default(beren3$value[Feeds]) :
+  argument is not numeric or logical: returning NA
+> avgMilk <- mean(beren3$value[Feeds]
++ avgFeed <- tapply (beren3$value[Feeds], beren3$age[Feeds], mean)
+Error: unexpected symbol in:
+"avgMilk <- mean(beren3$value[Feeds]
+avgFeed"
+> Feeds <- which(beren3$event == " bottle")
+> avgMilk <- mean(beren3$value [Feeds])
+Warning message:
+In mean.default(beren3$value[Feeds]) :
+  argument is not numeric or logical: returning NA
+> setwd('~/Desktop/Evolution/Tasks/Tasks_02')
+> Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
+> length(data)
+[1] 1
+> nrow(Data)
+[1] 1356
+> ncol(Data)
+[1] 12
+> colnames(Data)
+ [1] "year"         "month"        "day"          "dotw"         "start_hour"  
+ [6] "start_minute" "end_hour"     "end_minute"   "event"        "value"       
+[11] "units"        "caregiver"   
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver
+1    NA             kch
+2    NA              ap
+3    NA              ap
+4    NA              ap
+5    NA              ap
+6   1.5    oz        ap
+> Data[1,]
+  year month day     dotw start_hour start_minute end_hour end_minute event
+1 2019     4  18 Thursday         11           53       NA         NA birth
+  value units caregiver
+1    NA             kch
+> Data[2,]
+  year month day   dotw start_hour start_minute end_hour end_minute event
+2 2019    10  18 Friday          7           50       NA         NA   wet
+  value units caregiver
+2    NA              ap
+> Data[1:3,]
+  year month day     dotw start_hour start_minute end_hour end_minute event
+1 2019     4  18 Thursday         11           53       NA         NA birth
+2 2019    10  18   Friday          7           50       NA         NA   wet
+3 2019    10  18   Friday         10            0       NA         NA   wet
+  value units caregiver
+1    NA             kch
+2    NA              ap
+3    NA              ap
+> Data[1:3, 4]
+[1] "Thursday" "Friday"   "Friday"  
+> Data[1:5, 1:3]
+  year month day
+1 2019     4  18
+2 2019    10  18
+3 2019    10  18
+4 2019    10  18
+5 2019    10  18
+> Feeds <- which(Data[,9] == 'bottle')
+> berenMilk <- Data[Feeds ,]
+> head(berenMilk)
+   year month day     dotw start_hour start_minute end_hour end_minute  event
+6  2019    10  18   Friday          8           20       NA         NA bottle
+7  2019    10  18   Friday         10           40       NA         NA bottle
+8  2019    10  18   Friday         12           30       NA         NA bottle
+9  2019    10  18   Friday         14           53       NA         NA bottle
+20 2019    10  17 Thursday          9            8       NA         NA bottle
+21 2019    10  17 Thursday         11            5       NA         NA bottle
+   value units caregiver
+6    1.5    oz        ap
+7    2.5    oz        ap
+8    2.0    oz        ap
+9    2.0    oz        ap
+20   3.0    oz      vona
+21   2.0    oz      vona
+> Feeds <- which(Data[, 'event'] == 'bottle')
+> Feeds <- which (Data$event == 'bottle')
+> dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))
+> dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+> Data$age <- dateID - dateID[which(Data$event == 'birth')]
+> head(Data)
+  year month day     dotw start_hour start_minute end_hour end_minute  event
+1 2019     4  18 Thursday         11           53       NA         NA  birth
+2 2019    10  18   Friday          7           50       NA         NA    wet
+3 2019    10  18   Friday         10            0       NA         NA    wet
+4 2019    10  18   Friday         12           20       NA         NA    wet
+5 2019    10  18   Friday         14           25       NA         NA    wet
+6 2019    10  18   Friday          8           20       NA         NA bottle
+  value units caregiver age
+1    NA             kch   0
+2    NA              ap 183
+3    NA              ap 183
+4    NA              ap 183
+5    NA              ap 183
+6   1.5    oz        ap 183
+> beren2 <- Data
+> beren3 <- beren2[order(beren2$age),]
+> write.csv(beren3 , 'beren_new.csv' , quote=F, row.names=FALSE)
+> 
+> Feeds <- which(beren3$event == "bottle")
+> avgMilk <- mean(beren3$valuep[Feeds])
+Warning message:
+In mean.default(beren3$valuep[Feeds]) :
+  argument is not numeric or logical: returning NA
+> avgMilk <- mean(beren3$value[Feeds])
+> avgMilk
+[1] 2.36677
+> Feeds
+  [1]   24   25   32   33   34   43   44   45   46   55   56   57   58   59
+ [15]   70   71   72   73   86   87   96   97   98  109  110  111  121  122
+ [29]  123  133  134  135  145  146  147  148  160  161  162  172  173  174
+ [43]  175  185  186  187  188  196  197  198  199  208  209  210  211  222
+ [57]  223  224  233  234  235  242  243  256  257  269  270  283  296  297
+ [71]  298  299  309  310  311  312  324  325  326  342  343  344  351  352
+ [85]  353  354  363  364  365  371  372  373  383  384  385  386  394  395
+ [99]  396  407  408  409  410  415  416  417  418  427  428  429  430  440
+[113]  441  442  452  453  454  455  456  464  465  466  467  468  469  478
+[127]  479  480  481  482  483  493  494  495  496  497  498  506  507  508
+[141]  509  510  511  522  523  524  525  526  527  528  538  539  540  541
+[155]  550  551  552  553  566  567  568  569  580  581  582  583  588  589
+[169]  590  591  601  602  603  604  605  619  620  621  631  632  642  643
+[183]  654  655  656  669  670  671  672  673  684  685  686  687  696  697
+[197]  698  699  717  727  728  729  730  740  741  742  743  748  753  754
+[211]  755  756  767  768  769  770  779  780  781  790  791  792  793  803
+[225]  804  805  806  816  817  818  819  827  828  838  839  840  849  850
+[239]  851  860  861  869  870  879  880  881  889  890  900  901  909  910
+[253]  920  921  922  931  932  950  951  952  953  966  973  974  975  985
+[267]  993  999 1000 1010 1011 1020 1022 1023 1037 1038 1039 1045 1047 1052
+[281] 1053 1059 1060 1069 1070 1071 1076 1077 1090 1091 1097 1098 1104 1105
+[295] 1112 1113 1119 1120 1128 1130 1135 1136 1148 1149 1150 1157 1159 1165
+[309] 1166 1171 1172 1179 1180 1186 1187 1189 1195 1196 1203 1204 1251 1259
+> 
+> 
+> 
+> avgFeed <- tapply(beren3$value [Feeds], beren3$age[Feeds], mean)
+> varFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], var)
+> totalFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], sum)
+> numFeeds <- tapply(beren3$value[Feeds], beren3$age[Feeds], length)
+> cor(beren3$value[Feeds], beren3$age[Feeds])
+[1] -0.08224024
+> cor.test(beren3$value[Feeds], beren3$age[Feeds])
+
+	Pearson's product-moment correlation
+
+data:  beren3$value[Feeds] and beren3$age[Feeds]
+t = -1.4762, df = 320, p-value = 0.1409
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.18983242  0.02730373
+sample estimates:
+        cor 
+-0.08224024 
+
+> berenCor <- cor.test(beren3$value[Feeds], beren3$age[Feeds])
+> summary(berenCor)
+            Length Class  Mode     
+statistic   1      -none- numeric  
+parameter   1      -none- numeric  
+p.value     1      -none- numeric  
+estimate    1      -none- numeric  
+null.value  1      -none- numeric  
+alternative 1      -none- character
+method      1      -none- character
+data.name   1      -none- character
+conf.int    2      -none- numeric  
+> berenANOVA <-aov(beren3$value[Feeds] ~ beren3$caregiver[Feeds])
+> boxplot( beren3$value[Feeds]~ beren3$caregiver[Feeds], xlab= "who have the bottle" , ylab = "amount of milk consumed (oz)")
+> ?par
+starting httpd help server ... done
+> par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)
+> plot(as.numeric(names(totalFeed)), totalFeed, type="b" , pch=16, xlab="age in days", ylab="ounces of milk")
+> abline(h=mean(totalFeed), 1ty=2, col='red')
+Error: unexpected symbol in "abline(h=mean(totalFeed), 1ty"
+> abline (h=mean(totalFeed), 1ty=2, col='red')
+Error: unexpected symbol in "abline (h=mean(totalFeed), 1ty"
+> abline(h=mean(totalFeed),1ty=2,col='red')
+Error: unexpected symbol in "abline(h=mean(totalFeed),1ty"
+> abline(h=mean(totalFeed), lty=2, col='red')
+> pdf(''r02b-totalMilkByDay.pdf'', height = 4, width = 4)
+Error: unexpected symbol in "pdf(''r02b"
+> pdf(''r02b-totalMilkByDay.pdf'', height = 4, width = 4)
+Error: unexpected symbol in "pdf(''r02b"
+> pdf(''r02b-totalMilkByDay.pdf'', height = 4, width = 4)
+Error: unexpected symbol in "pdf(''r02b"
+> pdf("r02b-totalMilkByDay.pdf", height = 4, width = 4)
+> par(las=1, mar=c(5,5,1,1), mpg=c(2, 0.5, 0), tck=-0.01)
+Warning message:
+In par(las = 1, mar = c(5, 5, 1, 1), mpg = c(2, 0.5, 0), tck = -0.01) :
+  "mpg" is not a graphical parameter
+> par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)
+> plot(as.numeric(names(totalFeed)), totalFeed, type="b", pch=16 xlab="age in days", ylab="ounces of milk")
+Error: unexpected symbol in "plot(as.numeric(names(totalFeed)), totalFeed, type="b", pch=16 xlab"
+> plot(as.numeric(names(totalFeed)), totalFeed, type="b" , pch=16, xlab="age in days", ylab="ounces of milk")
+> abline(h=mean(totalFeed), lty=2, col='red')
+> dev.off()
+quartz 
+     2 
+> beren4 <-beren3[Naps,]
+Error in `[.data.frame`(beren3, Naps, ) : object 'Naps' not found
+> beren4<- beren3[Naps,]
+Error in `[.data.frame`(beren3, Naps, ) : object 'Naps' not found
+> beren4 <- beren3[Naps,]
+Error in `[.data.frame`(beren3, Naps, ) : object 'Naps' not found
+> beren4<- beren3[naps,]
+Error in `[.data.frame`(beren3, naps, ) : object 'naps' not found
+> 
