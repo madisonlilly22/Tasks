@@ -198,4 +198,89 @@ Error: unexpected symbol in "cor.test(berenCircumference$value[Circumference], b
 > cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm", alternative="greater")
 Error in cor.test.default(berenCircumference$value[Circumference], berenCircumference$age[Circumference],  : 
   not enough finite observations
+> CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference], method="spearm", alternative="greater")
+Error in cor.test.default(berenCircumference$value[Circumference], berenCircumference$age[Circumference],  : 
+  not enough finite observations
+> cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference]
++ CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference]
+Error: unexpected symbol in:
+"cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference]
+CircumferenceCor"
+> cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+Error in cor.test.default(berenCircumference$value[Circumference], berenCircumference$age[Circumference]) : 
+  not enough finite observations
+> Circumference <- which(Data[,9] == 'trait_head_circum')
+> berenCircumference <- Data[Circumference,]
+> Circumference <- which(Data[,'event'] == 'trait_head_circum')
+> Circumference <- which(Data$event == 'trait_head_circum')
+> Circumference <- which (berenCircumference$event == 'trait_head_circum')
+> avgCircumference <-mean(berenCircumference$value[Circumference])
+> avgCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], mean)
+> varCirumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], var)
+> totalCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], sum)
+> numCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], length)
+> cor(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+[1] 0.8759189
+> cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+
+	Pearson's product-moment correlation
+
+data:  berenCircumference$value[Circumference] and berenCircumference$age[Circumference]
+t = 3.1446, df = 3, p-value = 0.05148
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.02793716  0.99175961
+sample estimates:
+      cor 
+0.8759189 
+
+> CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference]
++ l
+Error: unexpected symbol in:
+"CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference]
+l"
+> cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm",alternative="greater")
+
+	Spearman's rank correlation rho
+
+data:  berenCircumference$value[Circumference] and berenCircumference$age[Circumference]
+S = 4.4409e-15, p-value = 0.008333
+alternative hypothesis: true rho is greater than 0
+sample estimates:
+rho 
+  1 
+
+> CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference], method="spearm", alternative="greater")
+> summary(lengthCor)
+Error in summary(lengthCor) : object 'lengthCor' not found
+> summary(headCor)
+Error in summary(headCor) : object 'headCor' not found
+> summary(head_traitCor)
+Error in summary(head_traitCor) : object 'head_traitCor' not found
+> summary(lenghthCor)
+Error in summary(lenghthCor) : object 'lenghthCor' not found
+> summary(CirumferenceCor)
+Error in summary(CirumferenceCor) : object 'CirumferenceCor' not found
+> summary(head_trait_CircumferenceCor)
+Error in summary(head_trait_CircumferenceCor) : 
+  object 'head_trait_CircumferenceCor' not found
+> summary(circumCor)
+Error in summary(circumCor) : object 'circumCor' not found
+> summary(headcircumCor)
+Error in summary(headcircumCor) : object 'headcircumCor' not found
+> par(las=1, mar=c(5,5,1,1), mpg=c(2,0.5,0), tck=-0.01)
+Warning message:
+In par(las = 1, mar = c(5, 5, 1, 1), mpg = c(2, 0.5, 0), tck = -0.01) :
+  "mpg" is not a graphical parameter
+> par(las=1, mar=c(5,5,1,1), mgp=c(2,0.5,0), tck=-0.01)
+> summary(circumferenceCor)
+Error in summary(circumferenceCor) : object 'circumferenceCor' not found
+> summary(headCor)
+Error in summary(headCor) : object 'headCor' not found
+> summary(trait_head_circum)
+Error in summary(trait_head_circum) : 
+  object 'trait_head_circum' not found
+> summary(trait_head_circumCor)
+Error in summary(trait_head_circumCor) : 
+  object 'trait_head_circumCor' not found
 > 

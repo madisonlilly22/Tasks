@@ -548,4 +548,6 @@ Error in `[.data.frame`(beren3, Naps, ) : object 'Naps' not found
 Error in `[.data.frame`(beren3, Naps, ) : object 'Naps' not found
 > beren4<- beren3[naps,]
 Error in `[.data.frame`(beren3, naps, ) : object 'naps' not found
+>  beren4 <- beren3[Naps,]
+Error in `[.data.frame`(beren3, Naps, ) : object 'Naps' not found
 > 

@@ -1,0 +1,331 @@
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.73 (7892) x86_64-apple-darwin17.0]
+
+[History restored from /Users/madisonlilly/.Rapp.history]
+
+2021-02-11 21:49:53.728 R[47142:9175102] +[NSSavePanel _warmUp] attempted warmup
+> setwd('~/Desktop/Evolution/Tasks/Tasks_03')
+> trueMean1 <- 5
+> trueSD1 <- 5
+> population1 <- rnorm(1e6, trueMean1, trueSD1)
+> trueMean2 <- 4
+> trueSD2 <- 5
+> population1 <- rnorm(1e6, trueMean1, trueSD1)
+> Size <- 50
+> Sample1 <- sample(population1, Size)
+> Sample2 <- sample(population2, Size)
+Error in sample(population2, Size) : object 'population2' not found
+> boxplot(Sample1, Sample2)
+Error in boxplot.default(Sample1, Sample2) : object 'Sample2' not found
+> boxplot(Sample1, Sample2)
+Error in boxplot.default(Sample1, Sample2) : object 'Sample2' not found
+> boxplot(Sample1, Sample2)
+Error in boxplot.default(Sample1, Sample2) : object 'Sample2' not found
+> population2 <- rnorm(1e6, trueMean1, trueSD1)
+> Size <- 50
+> Sample1 <- sample(population1, Size)
+> Sample2 <- sample(population2, Size)
+> boxplot(Sample1, Sample2)
+> source("http://jonsmitchell.com/code/simFxn04.R")
+> MatGrandma <- makeFounder("grandma_mom")
+> head(MatGrandma)
+     z               z              
+[1,] "grandma_mom-1" "grandma_mom-1"
+[2,] "grandma_mom-2" "grandma_mom-2"
+[3,] "grandma_mom-3" "grandma_mom-3"
+[4,] "grandma_mom-4" "grandma_mom-4"
+[5,] "grandma_mom-5" "grandma_mom-5"
+[6,] "grandma_mom-6" "grandma_mom-6"
+> MatGrandpa <- makeFounder("grandpa_mom")
+> head(MatGrandpa)
+     z               z              
+[1,] "grandpa_mom-1" "grandpa_mom-1"
+[2,] "grandpa_mom-2" "grandpa_mom-2"
+[3,] "grandpa_mom-3" "grandpa_mom-3"
+[4,] "grandpa_mom-4" "grandpa_mom-4"
+[5,] "grandpa_mom-5" "grandpa_mom-5"
+[6,] "grandpa_mom-6" "grandpa_mom-6"
+> PatGrandma <- makeFounder("grandma_da")
+> head(PatGrandma)
+     z              z             
+[1,] "grandma_da-1" "grandma_da-1"
+[2,] "grandma_da-2" "grandma_da-2"
+[3,] "grandma_da-3" "grandma_da-3"
+[4,] "grandma_da-4" "grandma_da-4"
+[5,] "grandma_da-5" "grandma_da-5"
+[6,] "grandma_da-6" "grandma_da-6"
+> 
+> PatGrandpa <- makeFounder("grandpa_da")
+> head(PatGrandpa)
+     z              z             
+[1,] "grandpa_da-1" "grandpa_da-1"
+[2,] "grandpa_da-2" "grandpa_da-2"
+[3,] "grandpa_da-3" "grandpa_da-3"
+[4,] "grandpa_da-4" "grandpa_da-4"
+[5,] "grandpa_da-5" "grandpa_da-5"
+[6,] "grandpa_da-6" "grandpa_da-6"
+> 
+> Alan <- makeBaby(PatGrandma, PatGrandpa)
+> Brenda <- makebaby(MatGrandma, MatGrandpa)
+Error in makebaby(MatGrandma, MatGrandpa) : 
+  could not find function "makebaby"
+> Brenda <- makeBaby(MatGrandma, MatGrandpa)
+> Focus <- makeBaby(Brenda, Alan)
+> ToMom <- length( grep("mom", Focus))/ length(Focus)
+> ToMom
+[1] 0.5
+> ToMomMom <- length(grep("grandma_mom", Focus))/ length(Focus)
+> ToMomMom
+[1] 0.4439
+> ToMomDad <- length(grep( "grandma_mom", Focus))/ length(Focus)
+> ToMomDad
+[1] 0.4439
+> Sibling_01 <- makeBaby(Brenda, Alan)
+> ToSib <- length(intersect(Focus, Sibling_01))/ length(Focus)
+> ToSib
+[1] 0.143
+> ManySiblings <- replicate(le3, length(intersect(Focus, makeBaby(Brenda, Alan)))/ length(Focus))
+Error in integer(n) : object 'le3' not found
+> ManySiblings <- replicate(1e3, length(intersect(Focus, makeBaby(Brenda, Alan)))/ length(Focus))
+> quantile(ManySiblings)
+      0%      25%      50%      75%     100% 
+0.043850 0.368775 0.502800 0.623175 0.984050 
+> mean(ManySiblings)
+[1] 0.5016316
+> plot(density(ManySiblings), main= "", xlab="proportion shared genes")
+> HWE <- function(p) {
++ 	aa <- p^2
++ 	ab <- 2*p*(1-p)
++ 	bb <- (1-p)^2
++ 	return(c(aa=aa, ab=ab, bb=bb))
++ }
+> HWE(0.5)
+  aa   ab   bb 
+0.25 0.50 0.25 
+> plot(1,1, type="n", xlim=c(0,1), ylim=c(0,1), xlab="freq. allele a", ylab=geno. freq")
+Error: unexpected symbol in "plot(1,1, type="n", xlim=c(0,1), ylim=c(0,1), xlab="freq. allele a", ylab=geno. freq"
+> plot(1, 1, type="n", xlim=c(0, 1), ylim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
+> p <- seq(from = 0, to = 1, by = 0.01)
+> GenoFreq <- t(sapply(p, HWE))
+> lines(p, GenoFreq[,"aa"], 1wd=2, col="red")
+Error: unexpected symbol in "lines(p, GenoFreq[,"aa"], 1wd"
+> lines(p, GenoFreq[,"aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "aa"], 1wd=2, col="red")
+Error: unexpected symbol in "lines(p, GenoFreq[, "aa"], 1wd"
+> lines(p, GenoFreq[, "aa"], 1wd=2, col="red")
+Error: unexpected symbol in "lines(p, GenoFreq[, "aa"], 1wd"
+> plot(1, 1, type="n", xlim=c(0, 1), ylim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
+> 
+> p <- seq(from = 0, to = 1, by = 0.01)
+> GenoFreq <- t(sapply(p, HWE))
+> lines(p, GenoFreq[, "aa"], 1wd=2, col="red")
+Error: unexpected symbol in "lines(p, GenoFreq[, "aa"], 1wd"
+> lines(p, GenoFreq[, "aa"], 1wd=2, co1="red")
+Error: unexpected symbol in "lines(p, GenoFreq[, "aa"], 1wd"
+> lines(p, GenoFreq[, "aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> plot(1, 1, type="n", xlim=c(0, 1), ylim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
+> 
+> p <- seq(from = 0, to = 1, by = 0.01)
+> GenoFreq <- t(sapply(p, HWE))
+> lines(p, GenoFreq[, "aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "aa"], lwd=2, col="red") 
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[,"aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "ab"], lwd=2, col="purple")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> 
+> lines(p, GenoFreq[,"aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "ab"], lwd=2, col="purple")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "bb"], lwd=2, col="blue")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> legend("top", legend=c("aa", "ab", "bb"), col=c("red", "purple", "blue"), lty=1, lwd=2, bty="n")
+Error in strwidth(legend, units = "user", cex = cex, font = text.font) : 
+  plot.new has not been called yet
+> Pop<- simPop(500)
+> points(pop[,"freqa"], Pop[,"Genotypes.aa"]/500, pch=21, bg="red")
+Error in points(pop[, "freqa"], Pop[, "Genotypes.aa"]/500, pch = 21, bg = "red") : 
+  object 'pop' not found
+> points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/500, pch=21, bg="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> plot.new()
+> plot(1, 1, type="n", xlim=c(0, 1), ylim=c(0, 1), xlab="freq. allele a", ylab="geno. freq")
+> p <- seq(from = 0, to = 1, by = 0.01)
+> 
+> GenoFreq <- t(sapply(p, HWE))
+> lines(p, GenoFreq[,"aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "ab"], lwd=2, col="purple")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> quartz()
+> lines(p, GenoFreq[,"aa"], lwd=2, col="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "ab"], lwd=2, col="purple")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> lines(p, GenoFreq[, "bb"], lwd=2, col="blue")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> legend("top", legend=c("aa", "ab", "bb"), col=c("red", "purple", "blue"), lty=1, lwd=2, bty="n")
+Error in strwidth(legend, units = "user", cex = cex, font = text.font) : 
+  plot.new has not been called yet
+> Pop<- simPop(500)
+> points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/500, pch=21, bg="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> Pop<- simPop(500)
+> points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/500, pch=21, bg="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> Pop <- simPop(50)
+> points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/50, pch=22, bg="red")
+Error in plot.xy(xy.coords(x, y), type = type, ...) : 
+  plot.new has not been called yet
+> install.packages("learnPopGen")
+--- Please select a CRAN mirror for use in this session ---
+also installing the dependencies ‘Rcpp’, ‘tmvnsim’, ‘quadprog’, ‘igraph’, ‘fastmatch’, ‘ape’, ‘maps’, ‘clusterGeneration’, ‘coda’, ‘combinat’, ‘expm’, ‘mnormt’, ‘numDeriv’, ‘phangorn’, ‘plotrix’, ‘scatterplot3d’, ‘gtools’, ‘phytools’
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/Rcpp_1.0.6.tgz'
+Content type 'application/octet-stream' length 3203922 bytes (3.1 MB)
+==================================================
+downloaded 3.1 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/tmvnsim_1.0-2.tgz'
+Content type 'application/octet-stream' length 23111 bytes (22 KB)
+==================================================
+downloaded 22 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/quadprog_1.5-8.tgz'
+Content type 'application/octet-stream' length 38458 bytes (37 KB)
+==================================================
+downloaded 37 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/igraph_1.2.6.tgz'
+Content type 'application/octet-stream' length 8842303 bytes (8.4 MB)
+==================================================
+downloaded 8.4 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/fastmatch_1.1-0.tgz'
+Content type 'application/octet-stream' length 49780 bytes (48 KB)
+==================================================
+downloaded 48 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/ape_5.4-1.tgz'
+Content type 'application/octet-stream' length 2650273 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/maps_3.3.0.tgz'
+Error in download.file(url, destfile, method, mode = "wb", ...) : 
+  cannot open URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/maps_3.3.0.tgz'
+In addition: Warning message:
+In download.file(url, destfile, method, mode = "wb", ...) :
+  URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/maps_3.3.0.tgz': status was 'SSL connect error'
+Warning in download.packages(pkgs, destdir = tmpd, available = available,  :
+  download of package ‘maps’ failed
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/clusterGeneration_1.3.7.tgz'
+Content type 'application/octet-stream' length 265848 bytes (259 KB)
+==================================================
+downloaded 259 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/coda_0.19-4.tgz'
+Content type 'application/octet-stream' length 321930 bytes (314 KB)
+==================================================
+downloaded 314 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/combinat_0.0-8.tgz'
+Content type 'application/octet-stream' length 40594 bytes (39 KB)
+==================================================
+downloaded 39 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/expm_0.999-6.tgz'
+Content type 'application/octet-stream' length 238015 bytes (232 KB)
+==================================================
+downloaded 232 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/mnormt_2.0.2.tgz'
+Content type 'application/octet-stream' length 189336 bytes (184 KB)
+==================================================
+downloaded 184 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/numDeriv_2016.8-1.1.tgz'
+Content type 'application/octet-stream' length 113169 bytes (110 KB)
+==================================================
+downloaded 110 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/phangorn_2.5.5.tgz'
+Content type 'application/octet-stream' length 2774993 bytes (2.6 MB)
+==================================================
+downloaded 2.6 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/plotrix_3.8-1.tgz'
+Content type 'application/octet-stream' length 1139222 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/scatterplot3d_0.3-41.tgz'
+Content type 'application/octet-stream' length 333688 bytes (325 KB)
+==================================================
+downloaded 325 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/gtools_3.8.2.tgz'
+Content type 'application/octet-stream' length 324588 bytes (316 KB)
+==================================================
+downloaded 316 KB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/phytools_0.7-70.tgz'
+Content type 'application/octet-stream' length 2137373 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/learnPopGen_1.0.4.tgz'
+Content type 'application/octet-stream' length 175740 bytes (171 KB)
+==================================================
+downloaded 171 KB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpesVido/downloaded_packages
+> library(learnPopGen)
+Error: package or namespace load failed for ‘learnPopGen’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
+ there is no package called ‘maps’
+> x <- genetic.drift(Ne=200, nrep=5, pause=0.01)
+Error in genetic.drift(Ne = 200, nrep = 5, pause = 0.01) : 
+  could not find function "genetic.drift"
+> 
