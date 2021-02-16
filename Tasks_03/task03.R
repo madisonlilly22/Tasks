@@ -1,4 +1,4 @@
-# Make our populations
+ # Make our populations
 setwd('~/Desktop/Evolution/Tasks/Tasks_03')
 trueMean1 <- 5
 trueSD1 <- 5
@@ -42,7 +42,7 @@ ToMomDad
 Sibling_01 <- makeBaby(Brenda, Alan)
 # I figure it will be a less than 0.5.
 ToSib <- length(intersect(Focus, Sibling_01))/ length(Focus)
-Tosib
+ToSib
 # The number was a lot less than I expected
 # 1000 siblings
 ManySiblings <- replicate(1e3, length(intersect(Focus, makeBaby(Brenda, Alan)))/ length(Focus))
@@ -78,7 +78,7 @@ Pop <- simPop(50)
 points(Pop[,"freqa"], Pop[,"Genotypes.aa"]/50, pch=22, bg="red")
 #
 
-install.packages("learnPopGen")
+#install.packages("learnPopGen")
 library(learnPopGen)
 x <- genetic.drift(Ne=200, nrep=5, pause=0.01)
 x <- genetic.drift(Ne=400, nrep=5, pause=0.01)
@@ -92,7 +92,7 @@ Line$coef
 plot(Samples, tExt)
 abline(Line)
 
-Extra Credit
+# Extra Credit
 Line2 <-lm(tExt~Samples+0)
 summary(Line2)
 Line2$coef

@@ -1,0 +1,459 @@
+mean[c(2, 4, 5) ]
+help
+mean(c(2, 4, 5))
+submit()
+boring_function('My first function')
+boring_function('My first function!')
+boring_function
+my_mean
+my_mean()
+my_mean(boring_function)
+help
+skip()
+mean(c(4,5,10))
+my_mean(c(4,5,10))
+submit()
+skip()
+remainder(5)
+reaminder(11,5)
+remainder(11,5)
+reaminder(divisor = 11, num =5)
+remainder(divisor = 11, num =5)
+remainder(4, div= 2)
+args(remainder)
+evaluate(sum, c(5, 10, 15))
+help()
+skip()
+evaluate(c(1.4,3.6,7.9,8.8))
+evaluate(sd,c(1.4,3.6,7.9,8.8))
+evaluate(function(x){x+1},6)
+evaluate(function(x){x[1]}, c(8,4,0))
+evaluate(funtion(x){x[length(x)]}, c(8,4,0))
+test_eval3()
+help
+evaluate(function(x){x[length(x)]}, c(8,4,0))
+?paste
+paste("Programing", "is", "fun!")
+paste("Programming", "is", "fun!")
+test_funct4()
+help
+skip()
+telegram()
+submit()
+test_funct6()
+skip()
+mad_libs(adjective= "", place= "", noun= "")
+'Hello' %p% 'student!'
+submit()
+"'I'" %p% 'love' %p% 'R!'"
+skip()
+help()
+'Hello' %p% 'love' "student!"
+skip()
+'I', 'love', 'R!'
+paste('I', 'love', 'R!')
+paste('I' %p% 'love' %p% 'R!')
+paste('I', %p% 'love', %p% 'R!')
+('I', %p% 'love', %p% 'R!')
+'I' %p% 'love' %p% 'R!'
+data(cars)
+?cars
+head(cars)
+plot(cars)
+?plot()
+?plot
+plot(x=cars$speed, y=cars$dist)
+plot(x=cars$dist, y=cars$speed)
+plot(x-cars$speed, y=cars$dist, xlab= "Speed")
+plot(x=cars$speed, y=cars$dist, xlab= "Speed")
+plot(x=cars$speed, y=cars$dist, ylab= "Stopping Distance")
+plot(x=cars$speed, y=cars$dist, xlab= "Speed", ylab= "Stopping Distance")
+plot(cars, main= "My Pilot")
+plot(cars, main= "My Plot")
+plot(cars, sub= "My Pilot Subtitle")
+plot(cars, sub= "My Plot Subtitle")
+plot(cars, col=2)
+plot(cars, xlim = c(10,15))
+plot(cars, pch=2)
+data(mtcars)
+?boxplot
+boxplot(formula= mpg ~ cyl, data= mtcars)
+hist(mtcars$mpg)
+cd ~/Desktop/Evolution/Tasks#
+git add -A#
+git commit -m "<Madison" Task 01 upload c"#
+git push -u origin master
+cd ~ /Desktop/Evolution/Tasks#
+git add -A#
+git commit -m "<Madison" Task 01 upload c"#
+git push -u origin master
+setwd('~/Desktop/Evolution/Tasks/Tasks_02')
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
+write.csv(Data, 'rawdata.csv', quote=F)
+length(data)
+nrow(Data)
+ncol(Data)
+colnames(Data)
+head(Data)
+Data[1,]
+Data[2,]
+Data[1:3,]
+Data[1:3, 4]
+Data[1:5, 1:3]
+Feeds <- which(Data[,9] == 'bottle')
+berenMilk <- Data[Feeds ,]
+head(berenMilk)
+Feeds <- which(Data[, 'event'] == 'bottle')
+Feeds <- which (Data$event == 'bottle')
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collpase= '-'))
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+Data$age <- dateID - dateID[which(Data$event == 'birth')]
+head(Data)
+Data$age <- dateID - dateID [which(Data$event == 'birth')]
+beren2 <- Data
+beren3 <- beren2[order(beren2$age),]
+head(Data)
+beren2 <- Data
+order(age)
+order("age")
+beren3 <- beren2[order(beren2$age),]
+Data$age <- dateID - dateID[which(Data$event== 'birth')]
+beren3 <- beren2[order(beren2$age),]
+beren3 <- beren2[order(beren2$age) ,]
+setwd('~/Desktop/Evolution/Tasks/Tasks_02')#
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)#
+write.csv(Data, 'rawdata.csv', quote=F)#
+length(data)#
+nrow(Data)#
+ncol(Data)#
+colnames(Data)#
+head(Data)#
+Data[1,]#
+Data[2,]#
+Data[1:3,]#
+Data[1:3, 4]#
+Data[1:5, 1:3]#
+Feeds <- which(Data[,9] == 'bottle')#
+berenMilk <- Data[Feeds ,]#
+head(berenMilk)#
+Feeds <- which(Data[, 'event'] == 'bottle')#
+Feeds <- which (Data$event == 'bottle')#
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collpase= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")#
+Data$age <- dateID - dateID[which(Data$event == 'birth')]#
+head(Data)#
+beren2 <- Data#
+beren3 <- beren2[order(beren2$age),]#
+write.csv(beren3 , 'beren_new.csv' , quote=F, row.names=FALSE)
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")#
+Data$age <- dateID - dateID[which(Data$event == 'birth')]
+head(Data)#
+beren2 <- Data#
+beren3 <- beren2[order(beren2$age),]
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collpse= '-'))
+dayID[1]
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collpse= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+dateID[1]
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")
+dayID[1]
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")#
+Data$age <- dateID - dateID[which(Data$event == 'birth')]#
+head(Data)#
+beren2 <- Data#
+beren3 <- beren2[order(beren2$age),]#
+write.csv(beren3 , 'beren_new.csv' , quote=F, row.names=FALSE)
+head(Data)
+cd ~/Desktop/Evolution/Tasks
+cd ~ /Desktop/Evolution/Tasks
+cd ~ / Desktop/Evolution/Tasks
+cd ~ /Desktop/Evolution/Tasks
+cd~/Desktop/Evolution/Tasks
+Feeds <- which(beren3$event =="bottle")
+avgMilk <- mean(beren3$value[Feeds])
+avgMilk <- mean(beren3$value[Feeds]
+avgFeed <- tapply (beren3$value[Feeds], beren3$age[Feeds], mean)
+Feeds <- which(beren3$event == " bottle")
+avgMilk <- mean(beren3$value [Feeds])
+setwd('~/Desktop/Evolution/Tasks/Tasks_02')#
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
+length(data)#
+nrow(Data)#
+ncol(Data)#
+colnames(Data)#
+head(Data)#
+Data[1,]#
+Data[2,]#
+Data[1:3,]#
+Data[1:3, 4]#
+Data[1:5, 1:3]#
+Feeds <- which(Data[,9] == 'bottle')#
+berenMilk <- Data[Feeds ,]#
+head(berenMilk)#
+Feeds <- which(Data[, 'event'] == 'bottle')#
+Feeds <- which (Data$event == 'bottle')#
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")#
+Data$age <- dateID - dateID[which(Data$event == 'birth')]#
+head(Data)#
+beren2 <- Data#
+beren3 <- beren2[order(beren2$age),]#
+write.csv(beren3 , 'beren_new.csv' , quote=F, row.names=FALSE)
+Feeds <- which(beren3$event == "bottle")
+avgMilk <- mean(beren3$valuep[Feeds])
+avgMilk <- mean(beren3$value[Feeds])
+avgMilk
+Feeds
+avgFeed <- tapply(beren3$value [Feeds], beren3$age[Feeds], mean)
+varFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], var)
+totalFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], sum)
+numFeeds <- tapply(beren3$value[Feeds], beren3$age[Feeds], length)
+cor(beren3$value[Feeds], beren3$age[Feeds])
+cor.test(beren3$value[Feeds], beren3$age[Feeds])
+berenCor <- cor.test(beren3$value[Feeds], beren3$age[Feeds])
+summary(berenCor)
+berenANOVA <-aov(beren3$value[Feeds] ~ beren3$caregiver[Feeds])
+boxplot( beren3$value[Feeds]~ beren3$caregiver[Feeds], xlab= "who have the bottle" , ylab = "amount of milk consumed (oz)")
+?par
+par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)
+plot(as.numeric(names(totalFeed)), totalFeed, type="b" , pch=16, xlab="age in days", ylab="ounces of milk")
+abline(h=mean(totalFeed), 1ty=2, col='red')
+abline (h=mean(totalFeed), 1ty=2, col='red')
+abline(h=mean(totalFeed),1ty=2,col='red')
+abline(h=mean(totalFeed), lty=2, col='red')
+pdf(''r02b-totalMilkByDay.pdf'', height = 4, width = 4)
+pdf("r02b-totalMilkByDay.pdf", height = 4, width = 4)
+par(las=1, mar=c(5,5,1,1), mpg=c(2, 0.5, 0), tck=-0.01)
+par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)
+plot(as.numeric(names(totalFeed)), totalFeed, type="b", pch=16 xlab="age in days", ylab="ounces of milk")
+plot(as.numeric(names(totalFeed)), totalFeed, type="b" , pch=16, xlab="age in days", ylab="ounces of milk")
+abline(h=mean(totalFeed), lty=2, col='red')
+dev.off()
+beren4 <-beren3[Naps,]
+beren4<- beren3[Naps,]
+beren4 <- beren3[Naps,]
+beren4<- beren3[naps,]
+beren4 <- beren3[Naps,]
+setwd('~/Desktop/Evolution/Tasks/Tasks_02')#
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)#
+write.csv(Data, 'rawdata.csv', quote=F)#
+length(data)#
+nrow(Data)#
+ncol(Data)#
+colnames(Data)#
+head(Data)#
+Data[1,]#
+Data[2,]#
+Data[1:3,]#
+Data[1:3, 4]#
+Data[1:5, 1:3]#
+Feeds <- which(Data[,9] == 'bottle')#
+berenMilk <- Data[Feeds ,]#
+head(berenMilk)#
+Feeds <- which(Data[, 'event'] == 'bottle')#
+Feeds <- which (Data$event == 'bottle')#
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")#
+Data$age <- dateID - dateID[which(Data$event == 'birth')]#
+head(Data)#
+beren2 <- Data#
+beren3 <- beren2[order(beren2$age),]#
+#
+#Correlation doesn't mean causation #
+Feeds <- which(beren3$event == "bottle")#
+avgMilk <- mean(beren3$value[Feeds])#
+avgFeed <- tapply(beren3$value [Feeds], beren3$age[Feeds], mean)#
+varFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], var)#
+totalFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], sum)#
+numFeeds <- tapply(beren3$value[Feeds], beren3$age[Feeds], length)#
+cor(beren3$value[Feeds], beren3$age[Feeds])#
+cor.test(beren3$value[Feeds], beren3$age[Feeds])#
+berenCor <- cor.test(beren3$value[Feeds], beren3$age[Feeds])#
+summary(berenCor)#
+berenANOVA <-aov(beren3$value[Feeds] ~ beren3$caregiver[Feeds])#
+boxplot( beren3$value[Feeds]~ beren3$caregiver[Feeds], xlab= "who have the bottle" , ylab = "amount of milk consumed (oz)")#
+?par#
+par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)#
+plot(as.numeric(names(totalFeed)), totalFeed, type="b" , pch=16, xlab="age in days", ylab="ounces of milk")#
+abline(h=mean(totalFeed), lty=2, col='red')#
+pdf("r02b-totalMilkByDay.pdf", height = 4, width = 4)#
+par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)#
+plot(as.numeric(names(totalFeed)), totalFeed, type="b", pch=16 xlab="age in days", ylab="ounces of milk")#
+abline(h=mean(totalFeed), lty=2, col='red')#
+dev.off()
+Circumference <- which(Data[,9] == 'trait_head')
+berenCircumference <- Data[Circumference,]
+Circumference <- which(Data[,'event'] == 'trait_head')
+Circumference <- which (berenCircumference$event == 'trait head')
+Circumference <- which(Data$event == 'trait_head')
+avgCircumference <-mean(berenCircumference$value[Circumference])
+avgCircumference <-tapply(berenCircumference$value[Circumference], berenCirumference$age[Cifcumference], mean)
+avgCircumference <-tapply(berenCircumference$value[Circumference], berenCirumference$age[Circumference], mean)
+avgCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], mean)
+varCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference],mean)
+varCirumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], var)
+totalCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], sum)
+numCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], length)
+cor(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm", alternative="greater")
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], berenCirumference$age[Circumference] method="spearm", alternative="greater")
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm", alternative="greater")
+CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference], method="spearm", alternative="greater")
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference]
+CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference]
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+Circumference <- which(Data[,9] == 'trait_head_circum')#
+berenCircumference <- Data[Circumference,]#
+Circumference <- which(Data[,'event'] == 'trait_head_circum')#
+Circumference <- which(Data$event == 'trait_head_circum')#
+Circumference <- which (berenCircumference$event == 'trait_head_circum')#
+avgCircumference <-mean(berenCircumference$value[Circumference])#
+avgCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], mean)#
+varCirumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], var)#
+totalCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], sum)#
+numCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], length)
+cor(berenCircumference$value[Circumference], berenCircumference$age[Circumference])#
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference])#
+CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference]
+l
+cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm",alternative="greater")
+CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference], method="spearm", alternative="greater")
+summary(lengthCor)
+summary(headCor)
+summary(head_traitCor)
+summary(lenghthCor)
+summary(CirumferenceCor)
+summary(head_trait_CircumferenceCor)
+summary(circumCor)
+summary(headcircumCor)
+par(las=1, mar=c(5,5,1,1), mpg=c(2,0.5,0), tck=-0.01)
+par(las=1, mar=c(5,5,1,1), mgp=c(2,0.5,0), tck=-0.01)
+summary(circumferenceCor)
+summary(headCor)
+summary(trait_head_circum)
+summary(trait_head_circumCor)
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)#
+write.csv(Data, 'rawdata.csv', quote=F)#
+length(data)#
+nrow(Data)#
+ncol(Data)#
+colnames(Data)#
+head(Data)#
+Data[1,]#
+Data[2,]#
+Data[1:3,]#
+Data[1:3, 4]#
+Data[1:5, 1:3]#
+Feeds <- which(Data[,9] == 'bottle')#
+berenMilk <- Data[Feeds ,]#
+head(berenMilk)#
+Feeds <- which(Data[, 'event'] == 'bottle')#
+Feeds <- which (Data$event == 'bottle')#
+dayID <- apply (Data, 1, function(x) paste (x[1:3], collapse= '-'))#
+dateID <- sapply (dayID, as.Date, format = "%Y-%m-%d" , origin= "2019-04-18")#
+Data$age <- dateID - dateID[which(Data$event == 'birth')]#
+head(Data)#
+beren2 <- Data#
+beren3 <- beren2[order(beren2$age),]#
+#
+#Correlation doesn't mean causation #
+Feeds <- which(beren3$event == "bottle")#
+avgMilk <- mean(beren3$value[Feeds])#
+avgFeed <- tapply(beren3$value [Feeds], beren3$age[Feeds], mean)#
+varFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], var)#
+totalFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], sum)#
+numFeeds <- tapply(beren3$value[Feeds], beren3$age[Feeds], length)#
+cor(beren3$value[Feeds], beren3$age[Feeds])#
+cor.test(beren3$value[Feeds], beren3$age[Feeds])#
+berenCor <- cor.test(beren3$value[Feeds], beren3$age[Feeds])#
+summary(berenCor)#
+berenANOVA <-aov(beren3$value[Feeds] ~ beren3$caregiver[Feeds])#
+boxplot( beren3$value[Feeds]~ beren3$caregiver[Feeds], xlab= "who have the bottle" , ylab = "amount of milk consumed (oz)")#
+?par#
+par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)#
+plot(as.numeric(names(totalFeed)), totalFeed, type="b" , pch=16, xlab="age in days", ylab="ounces of milk")#
+abline(h=mean(totalFeed), lty=2, col='red')#
+pdf("r02b-totalMilkByDay.pdf", height = 4, width = 4)#
+par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)#
+plot(as.numeric(names(totalFeed)), totalFeed, type="b", pch=16 xlab="age in days", ylab="ounces of milk")#
+abline(h=mean(totalFeed), lty=2, col='red')#
+dev.off()#
+#The data would be hard to interpret because it is only looking at the amount Beren drinks at the nursery, not anywhere else such as his home.#
+#
+Bonus#
+beren4 <- beren3[Naps,]#
+startHour <- (beren4$start_hour)#
+startMin <- (beren4$start_minute)#
+stopHour <- (beren4$end_hour)#
+stopMin <- (beren4$end_minute)
+setwd('~/Desktop/Evolution/Tasks/Tasks_02')#
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)#
+write.csv(Data, 'rawdata.csv', quote=F)#
+length(data)#
+nrow(Data)#
+ncol(Data)#
+colnames(Data)#
+head(Data)
+Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
+Data
+x <- read.csv("http://jonsmitchell.com/data/beren.csv")
+head(x)
+rm(list=ls())
+x
+Data <- read.csv("http://jonsmitchell.com/data/beren.csv")
+Data
+x <- read.csv("beren_new.csv")
+x
+head(x)
+beren3 <- read.csv("beren_new.csv", stringsAsFactors=F)
+beren4 <- beren3[Naps,]#
+startHour <- (beren4$start_hour)#
+startMin <- (beren4$start_minute)#
+stopHour <- (beren4$end_hour)#
+stopMin <- (beren4$end_minute)
+Circumference <- which(Data[,9] == 'trait_head_circum')
+Circumference <- which(beren3$event == 'trait_head_circum')
+Circumference <- which(beren3$event == 'trait_head_circum')#
+berenCircumference <- beren3[Circumference,]#
+cor(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+Circumference <- which(beren3$event == 'trait_head_circum')
+Circumference
+berenCircumference <- beren3[Circumference,]
+berenCircumference
+head(beren3)
+which(beren3$age == 0)
+which(beren3$age == 2)
+which(beren3$age == 4)
+Circumference
+berenCircumference <- beren3[Circumference,]
+berenCircumference
+Circumference
+cor(berenCircumference$value, berenCircumference$age)
+# Make our populations#
+setwd('~/Desktop/Evolution/Tasks/Tasks_03')#
+trueMean1 <- 5#
+trueSD1 <- 5#
+population1 <- rnorm(1e6, trueMean1, trueSD1)#
+trueMean2 <- 4#
+trueSD2 <- 5#
+population2 <- rnorm(1e6, trueMean1, trueSD1)#
+# Sample of each population#
+Size <- 50#
+Sample1 <- sample(population1, Size)#
+Sample2 <- sample(population2, Size)#
+# compare samples w/ boxplot#
+boxplot(Sample1, Sample2)#
+# The populations were different but not a significant amount
+source("http://jonsmitchell.com/code/simFxn04.R")#
+MatGrandma <- makeFounder("grandma_mom")#
+head(MatGrandma)#
+MatGrandpa <- makeFounder("grandpa_mom")#
+head(MatGrandpa)#
+PatGrandma <- makeFounder("grandma_da")#
+head(PatGrandma)#
+PatGrandpa <- makeFounder("grandpa_da")#
+head(PatGrandpa)#
+Alan <- makeBaby(PatGrandma, PatGrandpa)

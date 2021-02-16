@@ -1,4 +1,5 @@
 setwd('~/Desktop/Evolution/Tasks/Tasks_02')
+Data <- read.csv("http://jonsmitchell.com/data/beren.csv")
 Data <- read.csv ('http://jonsmitchell.com/data/beren.csv', stringsAsFactors=F)
 write.csv(Data, 'rawdata.csv', quote=F)
 length(data)
@@ -47,7 +48,8 @@ abline(h=mean(totalFeed), lty=2, col='red')
 dev.off()
 #The data would be hard to interpret because it is only looking at the amount Beren drinks at the nursery, not anywhere else such as his home.
 
-Bonus
+#Bonus
+beren3 <- read.csv("beren_new.csv", stringsAsFactors=F)
 beren4 <- beren3[Naps,]
 startHour <- (beren4$start_hour)
 startMin <- (beren4$start_minute)
@@ -67,18 +69,23 @@ cor.test(beren4$start_hour, beren4$sleepTime)
 #The relationship will be negative
 
 #My hypothesis is that over time Berens head will increase in size.
-Circumference <- which(Data[,9] == 'trait_head_circum')
-berenCircumference <- Data[Circumference,]
-Circumference <- which(Data[,'event'] == 'trait_head_circum')
-Circumference <- which(Data$event == 'trait_head_circum')
-Circumference <- which (berenCircumference$event == 'trait_head_circum')
-avgCircumference <-mean(berenCircumference$value[Circumference])
-avgCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], mean)
-varCirumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], var)
-totalCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], sum)
-numCircumference <-tapply(berenCircumference$value[Circumference], berenCircumference$age[Circumference], length)
-cor(berenCircumference$value[Circumference], berenCircumference$age[Circumference])
+# find which rows are measurements of the circumference
+Circumference <- which(beren3$event == 'trait_head_circum')
+
+# make a new object that is only the circumferences
+berenCircumference <- beren3[Circumference,]
+
+# find the correlation between head size and age using the new object made above
+cor(berenCircumference$value, berenCircumference$age)
+
+# test 
 cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm",alternative="greater")
+
+
 CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference], method="spearm", alternative="greater")
 summary(trait_head_circumCor)
 par(las=1, mar=c(5,5,1,1), mgp=c(2,0.5,0), tck=-0.01)
+plot(as.numeric(names(totalCircumference)), totalCircumference, type="b", pch=16, xlab="Age in Days", ylab="Circumference in Centimeters")
+abline(h=mean(totalLength), lty=2, col="red")
+pdf('r02b-BerenCircumference, height=4, width=4')
+dev.off()
