@@ -71,15 +71,12 @@ cor.test(beren4$start_hour, beren4$sleepTime)
 #My hypothesis is that over time Berens head will increase in size.
 # find which rows are measurements of the circumference
 Circumference <- which(beren3$event == 'trait_head_circum')
-
 # make a new object that is only the circumferences
 berenCircumference <- beren3[Circumference,]
-
 # find the correlation between head size and age using the new object made above
 cor(berenCircumference$value, berenCircumference$age)
-
 # test 
-cor.test(berenCircumference$value[Circumference], berenCircumference$age[Circumference], method="spearm",alternative="greater")
+cor.test(beren3[Circumference], berenCircumference$age[Circumference], method="spearm",alternative="greater")
 
 
 CircumferenceCor <-cor.test(berenCircumference$value[Circumference], berenCircumference$age [Circumference], method="spearm", alternative="greater")
