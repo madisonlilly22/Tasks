@@ -1,0 +1,98 @@
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.73 (7892) x86_64-apple-darwin17.0]
+
+[Workspace restored from /Users/madisonlilly/.RData]
+[History restored from /Users/madisonlilly/.Rapp.history]
+
+2021-02-25 17:53:05.153 R[63792:12643110] +[NSSavePanel _warmUp] attempted warmup
+> install.packages("learnPopGen")
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/learnPopGen_1.0.4.tgz'
+Content type 'application/octet-stream' length 175740 bytes (171 KB)
+==================================================
+downloaded 171 KB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpQzrWIZ/downloaded_packages
+> library(learnPopGen)
+> install.packages("coala")
+also installing the dependencies ‘rehh.data’, ‘rehh’, ‘scrm’, ‘RcppArmadillo’
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/rehh.data_1.0.0.tgz'
+Content type 'application/octet-stream' length 3379826 bytes (3.2 MB)
+==================================================
+downloaded 3.2 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/rehh_3.2.1.tgz'
+Content type 'application/octet-stream' length 1889908 bytes (1.8 MB)
+==================================================
+downloaded 1.8 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/scrm_1.7.3-1.tgz'
+Content type 'application/octet-stream' length 1376093 bytes (1.3 MB)
+==================================================
+downloaded 1.3 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/RcppArmadillo_0.10.2.1.0.tgz'
+Content type 'application/octet-stream' length 1877637 bytes (1.8 MB)
+==================================================
+downloaded 1.8 MB
+
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/coala_0.6.0.tgz'
+Content type 'application/octet-stream' length 2663509 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpQzrWIZ/downloaded_packages
+> library(coala)
+> install.packages("phytools")
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/phytools_0.7-70.tgz'
+Content type 'application/octet-stream' length 2137373 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpQzrWIZ/downloaded_packages
+> library(phytools)
+Loading required package: ape
+Loading required package: maps
+> model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) 
+> model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
++ feat_mutation(10) +
++ feat_recombination(10)
+> feat_recombination(10)+
++ sumstat_trees() +
++ sumstat_nucleotide_div()
+Partial coal_model with  3  components:
+* Recombination with rate `10` 
+* stat_trees 
+* stat_pi 
+> stats <- simulate(model, nsim=1)
+> Diversity <-stats$pi
+> Nloci <- length(stats$trees)
+> t1 <- read.tree(text=stats$trees[[1]][1])
+1: plot(t1)
+2: axisPhylo()
+3: 
