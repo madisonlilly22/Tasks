@@ -96,3 +96,186 @@ Partial coal_model with  3  components:
 1: plot(t1)
 2: axisPhylo()
 3: 
+> Pop1 <- simPop(Popsize= 12, nGenerations= 4 , initial_p = 0.5, h = 1, s = 0)
+Error in simPop(Popsize = 12, nGenerations = 4, initial_p = 0.5, h = 1,  : 
+  could not find function "simPop"
+> plot(1:nrow(Pop1), Pop1[,1], ylim=c(0, 1), type = "l", xlab="generation", ylab="allele freq.", lwd=2)
+Error in nrow(Pop1) : object 'Pop1' not found
+> lines(1:nrow(Pop1), Pop1[,2], lwd=2, col='red')
+Error in nrow(Pop1) : object 'Pop1' not found
+> legend("topleft", legend = c("a","b"), col=c("black", "red"), lwd=2, bty="n")
+Error in strwidth(legend, units = "user", cex = cex, font = text.font) : 
+  plot.new has not been called yet
+> plotFit( nruns = 10, n = 50, ngens = 100, init_p = 0.5, h = 1, s = 0)
+Error in plotFit(nruns = 10, n = 50, ngens = 100, init_p = 0.5, h = 1,  : 
+  could not find function "plotFit"
+> 
+> 
+> Pop1 <- simPop(Popsize= 12, nGenerations= 4 , initial_p = 0.5, h = 1, s = 0)
+Error in simPop(Popsize = 12, nGenerations = 4, initial_p = 0.5, h = 1,  : 
+  could not find function "simPop"
+> library(learnPopGen)
+> Pop1 <- simPop(Popsize= 12, nGenerations= 4 , initial_p = 0.5, h = 1, s = 0)
+Error in simPop(Popsize = 12, nGenerations = 4, initial_p = 0.5, h = 1,  : 
+  could not find function "simPop"
+> library(learnPopGen)
+> coalesce.plot(Pop1 <- simPop(Popsize= 12, nGenerations= 4 , initial_p = 0.5, h = 1, s = 0))
+Error in coalesce.plot(Pop1 <- simPop(Popsize = 12, nGenerations = 4,  : 
+  could not find function "coalesce.plot"
+> 
+> coalescent.plot(Pop1 <- simPop(Popsize= 12, nGenerations= 4 , initial_p = 0.5, h = 1, s = 0))
+Error in simPop(Popsize = 12, nGenerations = 4, initial_p = 0.5, h = 1,  : 
+  could not find function "simPop"
+> 
+> install.packages("learnPopGen")
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/learnPopGen_1.0.4.tgz'
+Content type 'application/octet-stream' length 175740 bytes (171 KB)
+==================================================
+downloaded 171 KB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpQzrWIZ/downloaded_packages
+> library(learnPopGen)
+> install.packages("coala")
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/coala_0.6.0.tgz'
+Content type 'application/octet-stream' length 2663509 bytes (2.5 MB)
+==================================================
+downloaded 2.5 MB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpQzrWIZ/downloaded_packages
+> library(coala)
+> install.packages("phytools")
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/macosx/contrib/4.0/phytools_0.7-70.tgz'
+Content type 'application/octet-stream' length 2137373 bytes (2.0 MB)
+==================================================
+downloaded 2.0 MB
+
+
+The downloaded binary packages are in
+	/var/folders/n7/d3jm9tl93nzd73pycdd2qsh40000gn/T//RtmpQzrWIZ/downloaded_packages
+> library(phytools)
+> model <- coal_model(sample_size = 5, loci_number = 10, loci_length = 500, ploidy = 2) +
++ feat_mutation(10) +
++ feat_recombination(10)+
++ sumstat_trees() +
++ sumstat_nucleotide_div()
+> #run simulation, change nsim
+> stats <- simulate(model, nsim=1)
+> #pi is avg # of diff at locus btwn 2 individ.
+> Diversity <-stats$pi
+> Nloci <- length(stats$trees)
+> t1 <- read.tree(text=stats$trees[[1]][1])
+> plot(t1)
+> axisPhylo()
+> Age1 <- max(nodeHeights(t1))
+> t2 <- read.tree(text=stats$trees[[2]][1])
+> plot(t2)
+> axisPhylo()
+> par(mfrow=c(1,2))
+> plot(t1)
+> axisPhylo()
+> plot(t2)
+> axisPhylo()
+> compare.chronograms(t1, t2)
+> t1_1 <-read.tree(text=stats$trees[[1]][1])
+> t1_2 <-read.tree(text=stats$trees[[1]][2])
+> compare.chronograms(t1_1, t1_2)
+> t1_1 <-read.tree(text=stats$trees[[1]][1])
+> t1_2 <-read.tree(text=stats$trees[[1]][2])
+> compare.chronograms(t1_1, t1_2)
+> for (locus in1:Nloci) {
+Error: unexpected symbol in "for (locus in1"
+> 	ntrees <-length(stats$trees[[locus]])
+Error: object 'locus' not found
+> 	for (n in 1:trees) {
++ 		if (locus== 1 && n==1) {
++ 			outPhy <- read.tree(text=stats$trees[[locus]][n])
++ 			}
++ 			else {
++ 				outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
++ 				}
++ 				}
+Error in 1:trees : NA/NaN argument
+In addition: Warning message:
+In 1:trees : numerical expression has 3 elements: only the first used
+> 				}
+Error: unexpected '}' in "                                }"
+> t1_1 <-read.tree(text=stats$trees[[1]][1])
+> t1_2 <-read.tree(text=stats$trees[[1]][2])
+> compare.chronograms(t1_1, t1_2)
+> for (locus in n1:Nloci) {
++ 	ntrees <-length(stats$trees[[locus]])
++ 	for (n in 1:trees) {
++ 		if (locus== 1 && n==1) {
++ 			outPhy <- read.tree(text=stats$trees[[locus]][n])
++ 			}
++ 			else {
++ 				outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
++ 				}
++ 				}
++ 				}
+Error in n1 : object 'n1' not found
+> 
+> for (locus in 1:Nloci) {
++ 	ntrees <-length(stats$trees[[locus]])
++ 	for (n in 1:trees) {
++ 		if (locus== 1 && n==1) {
++ 			outPhy <- read.tree(text=stats$trees[[locus]][n])
++ 			}
++ 			else {
++ 				outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
++ 				}
++ 				}
++ 				}
+Error in 1:trees : NA/NaN argument
+In addition: Warning message:
+In 1:trees : numerical expression has 3 elements: only the first used
+> 
+> t1_1 <-read.tree(text=stats$trees[[1]][1])
+> t1_2 <-read.tree(text=stats$trees[[1]][2])
+> compare.chronograms(t1_1, t1_2)
+> for (locus in 1:Nloci) {
++ 	ntrees <-length(stats$trees[[locus]])
++ 	for (n in 1:ntrees) {
++ 		if (locus== 1 && n==1) {
++ 			outPhy <- read.tree(text=stats$trees[[locus]][n])
++ 			}
++ 			else {
++ 				outPhy <- ape:::c.phylo(outPhy, read.tree(text=stats$trees[[locus]][n]))
++ 				}
++ 				}
++ 				}
+> par(mfrow=c (1,1))
+> densityTree(outPhy)	
+> par(mfrow=c (1,1))
+> densityTree(outPhy)	
+> model3 <- coal_model(10,50)+
++ feat)mutation(par_prior("theta", sample.int(100,1)))+
+Error: unexpected ')' in:
+"model3 <- coal_model(10,50)+
+feat)"
+> sumstat_nucelotide_div()
+Error in sumstat_nucelotide_div() : 
+  could not find function "sumstat_nucelotide_div"
+> stats <- simulate(model3, nsim = 40)			
+Error in simulate(model3, nsim = 40) : object 'model3' not found
+> mean_pi <-sapply(stats, function(x) mean(x$pi))	
+Error: $ operator is invalid for atomic vectors
+In addition: Warning message:
+In mean.default(x$pi) : argument is not numeric or logical: returning NA
+> theta <- sapply(stats, function (x) x$pars[["theta"]])	
+Error: $ operator is invalid for atomic vectors
+> library(learnPopGen)
+> coalescent.plot(n=4, ngen=8, col.order = "alternating")
+> 
+> coalescent.plot(n=6, ngen=11, col.order = "alternating")
+> coalescent.plot(n=8, ngen=14, col.order = "alternating")
+> 
+> coal4 <- coalescent.plot(n=4, ngen=8, col.order = "alternating")
+> coal5 <- coalescent.plot(n=6, ngen=11, col.order = "alternating")
+> coal6 <- coalescent.plot(n=8, ngen=14, col.order = "alternating")
+> 
+> 
