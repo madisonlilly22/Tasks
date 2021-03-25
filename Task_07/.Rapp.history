@@ -43,11 +43,6 @@ rescaleFreq <-apply(overallFreq[,3:ncol(overallFreq)], 2, function(x) x-x[1])#
 plot(1, 1, type="n", xlim=c(1998, 2013), ylim=c(-0.25,0.25))#
 s <- apply(rescaleFreq, 2, function(x) lines(overallFreq[,1], x, col= rgb(0,0,0,0.01)))#
 dYear <-c()#
-dAlleles <-c()
-rescaleFreq <-apply(overallFreq[,3:ncol(overallFreq)], 2, function(x) x-x[1])#
-plot(1, 1, type="n", xlim=c(1998, 2013), ylim=c(-0.25,0.25))#
-s <- apply(rescaleFreq, 2, function(x) lines(overallFreq[,1], x, col= rgb(0,0,0,0.01)))#
-dYear <-c()#
 dAlleles <-c()#
 #
 for(i in 3:ncol(overallFreq)) {#
