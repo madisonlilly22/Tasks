@@ -50,3 +50,37 @@ edgelabels(text=Labs, cex=0.25)
 plot.phylo
 plotTree(AnolisTree, offset=1, show.tiplabel=FALSE)
 anolis <-collapseTree(AnolisTree)
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")#
+AnolisTree$edge
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")#
+AnolisTree$edge#
+EdgesThatAreTips <- which(AnolisTree$edge[,2] <=Ntip(AnolisTree))
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")#
+AnolisTree$edge#
+EdgesThatAreTips <- which(AnolisTree$edge[,2] <=Ntip(AnolisTree))#
+TipLengths <-AnolisTree$edge.length[EdgesThatAreTips]
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")#
+AnolisTree$edge#
+EdgesThatAreTips <- which(AnolisTree$edge[,2] <=Ntip(AnolisTree))#
+TipLengths <-AnolisTree$edge.length[EdgesThatAreTips]#
+AnolisTree$edge.length#
+AnolisisShortestTips <-which(TipLength == min(TipLengths))#
+Anolistree_no_short <- drop.tip(tree, AnolisShortestTips[1])
+plotTree(AnolisTree, offset=1, show.tip.label=TRUE, tip.color="red")#
+AnolisTree$edge#
+EdgesThatAreTips <- which(AnolisTree$edge[,2] <=Ntip(AnolisTree))#
+TipLengths <-AnolisTree$edge.length[EdgesThatAreTips]#
+AnolisTree$edge.length#
+AnolisisShortestTips <-which(TipLength == min(TipLengths))#
+Anolistree_no_short <- drop.tip(tree, AnolisShortestTips[1])#
+plot(Anolistree_no_short)
+AnolisShortestTips <-which(TipLengths == min(TipLengths))
+Anolistree_no_short <- drop.tip(tree, AnolisShortestTips[1])
+plot(Anolistree_no_short)
+llt(AnolisTree)
+ltt(AnolisTree)
+abline(0, 1, lwd=2, col='red', lty=2)
+fit.bd()
+fit.bd(tree)
+fit.bd(newspecies)

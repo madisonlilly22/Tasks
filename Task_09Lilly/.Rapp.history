@@ -1,18 +1,173 @@
+setwd('Users/Madison/Desktop/Evolution/Tasks/Code')
+setwd('Users/Madison/Desktop/Evolution/Tasks/Project/Code')
+setwd('Users/madison/Desktop/Evolution/Tasks/Project/Code')
+setwd('Users/madisonlilly/Desktop/Evolution/Tasks/Project/Code')
+setwd('/Users/madison/Desktop/Evolution/Tasks/Project/Code')
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')
+Data <- read.csv('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F)
+write.csv(Data, 'rawdata.csv', quote=F)
+Data
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.csv('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F)
+head(Data)
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.table('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F, sep=";")
+head(Data)
+Data <- read.table('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F, sep=";", col.names=1)#
+#
+#write.csv(Data, 'rawdata.csv', quote=F)#
+#
+head(Data)
+Colnames <- Data[1,]#
+Cols <- c(6,8,9)#
+#
+Data2 <- Data[-1,]
+Data2[,Cols[1]] <- gsub(",", ".", Data2[,Cols[1]])
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.table('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F, sep=";", col.names=1)#
+#
+Colnames <- Data[1,]#
+Cols <- c(6,8,9)#
+#
+Data2 <- Data[-1,]#
+Data2[,Cols[1]] <- gsub(",", ".", Data2[,Cols[1]])#
+Data2[,Cols[2]] <- gsub(",", ".", Data2[,Cols[2]])#
+Data2[,Cols[3]] <- gsub(",", ".", Data2[,Cols[3]])
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.table('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F, sep=";")#
+#
+Colnames <- Data[1,]#
+Cols <- c(6,8,9)#
+#
+Data2 <- Data[-1,]#
+Data2[,Cols[1]] <- gsub(",", ".", Data2[,Cols[1]])#
+Data2[,Cols[2]] <- gsub(",", ".", Data2[,Cols[2]])#
+Data2[,Cols[3]] <- gsub(",", ".", Data2[,Cols[3]])
+head(Data2)
+Colnames
+colnames(Data2) <- c("date", "time", "start", "fishType", "runID", "fishMass", "photoperiod", "expTime", "oxygen", "", "")
+head(Data2)
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.table('~/Desktop/Evolution/Tasks/Project/Project/Data/Mexican cavefish data.csv', stringsAsFactors=F, sep=";")#
+#
+# Reformat data#
+Colnames <- Data[1,]#
+Cols <- c(6,8,9)#
+#
+Data2 <- Data[-1,]#
+Data2[,Cols[1]] <- gsub(",", ".", Data2[,Cols[1]])#
+Data2[,Cols[2]] <- gsub(",", ".", Data2[,Cols[2]])#
+Data2[,Cols[3]] <- gsub(",", ".", Data2[,Cols[3]])#
+#
+colnames(Data2) <- c("date", "time", "start", "fishType", "runID", "fishMass", "photoperiod", "expTime", "oxygen", "", "")#
+#
+write.csv(Data2, 'formatted_data.csv', quote=F)
+Data <- read.csv("formatted_data.csv", row.names=1, col.names=1)
+Data <- read.csv("formatted_data.csv", row.names=1, header=T)
+head(Data)
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.csv("formatted_data.csv", header=T)#
+head(Data)
+setwd('~/Desktop/Evolution/Tasks/Project/Project/Code')#
+Data <- read.csv("formatted_data.csv", row.names=1, header=T)#
+head(Data)
+plot(Data$fishMass, Data$oxygen, type="n", xlab="Mass", ylab="Oxygen")
+unique(Data$fishType)
+Surface <- which(Data$fishType == "Surface")#
+Pachon <- which(Data$fishType == "Pachon")#
+plot(Data$fishMass, Data$oxygen, type="n", xlab="Mass", ylab="Oxygen")#
+points(Data$fishMass[Surface], Data$oxygen[Surface], bg='pink', pch=21)
+Surface <- which(Data$fishType == "Surface")#
+Pachon <- which(Data$fishType == "Pachon")#
+plot(Data$fishMass, Data$oxygen, type="n", xlab="Mass", ylab="Oxygen")#
+points(Data$fishMass[Surface], Data$oxygen[Surface], bg='pink', pch=21)#
+points(Data$fishMass[Pachon], Data$oxygen[Pachon], bg='yellow', pch=21)
+abline(lm(Data$oxygen[Surface]~Data$fishMass[Surface]), lty=2, col="pink", lwd=2)
+abline(lm(Data$oxygen[Pachon]~Data$fishMass[Pachon]), lty=2, col="yellow", lwd=2)
+fossilData <-data.frame(svl=log(c(25.4, 32.2, 17.7, 19.7, 24, 31)), tip1=c("Anolis_aliniger", "Anolis_aliniger", "Anolis_occultus", "Anolis_ricordii", "Anolis_cristatellus", "Anolis_occultus"), tip2=c("Anolis_chlorocyanus", "Anolis_coelestinus", "Anolis_hendersoni", "Anolis_cybotes", "Anolis_angusticeps", "Anolis_angusticeps"))#
+fossilData <-data.frame(svl=log(c(25.4, 32.2, 17.7, 19.7, 24, 31)), tip1=c("Anolis_aliniger", "Anolis_aliniger", "Anolis_occultus", "Anolis_ricordii", "Anolis_cristatellus", "Anolis_occultus"), tip2=c("Anolis_chlorocyanus", "Anolis_coelestinus", "Anolis_hendersoni", "Anolis_cybotes", "Anolis_angusticeps", "Anolis_angusticeps"))
+etwd('~/Desktop/Evolution/Tasks/Task_09')#
+#Unite data and phlyogenies into 1 big thing#
+#
+library('phytools')#
+tree <-read.tree('https://jonsmitchell.com/data/anolis.tre')#
+plot(tree, type='fan')#
+tree$tip.label#
+#1 There are 82 tips and the branch lengths are present.#
+#
+data <-read.csv('https://jonsmitchell.com/data/svl.csv', stringsAsFactors=F, row.names=1)#
+data[,1]#
+#2 "data" shows us a list of lizard species and snout-vent length. There are 100 dimensions.#
+#
+#covert object into vector#
+svl <- setNames(data$svl, rownames(data))#
+#
+Ancestors <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)#
+Ancestors#
+#3#
+#4
 setwd('~/Desktop/Evolution/Tasks/Task_09')
-library('phytools')
-tree <-read.tree('https://jonsmitchell.com/data/anolis.tre')
-plot(tree, type='fan')
-tree$tip.label
-data <-read.csv('https://jonsmitchell.com/data/svl.csv', stringsAsFactors=F, row.names=1)
-data[,1]
-svl <- setNames(data$svl, rownames(data))
-Ancestors <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)
+library('phytools')#
+tree <-read.tree('https://jonsmitchell.com/data/anolis.tre')#
+plot(tree, type='fan')#
+tree$tip.label#
+#1 There are 82 tips and the branch lengths are present.#
+#
+data <-read.csv('https://jonsmitchell.com/data/svl.csv', stringsAsFactors=F, row.names=1)#
+data[,1]#
+#2 "data" shows us a list of lizard species and snout-vent length. There are 100 dimensions.#
+#
+#covert object into vector#
+svl <- setNames(data$svl, rownames(data))#
+#
+Ancestors <- fastAnc(tree, svl, vars=TRUE, CI=TRUE)#
 Ancestors
-par(mar=c(0.1,0.1,0.1,0.1))
-plot(tree, type="fan", lwd=2, show.tip.label=F)
-tiplabels(pch=16, cex=0.25*svl[tree$tip.label])
-nodelabels(pch=16, cex=0.25*ancestors$ace)
-nodelabels(pch=16, cex=0.25*Ancestors$ace)
-obj <-contMap(tree, svl, plot=F)
+par(mar=c(0.1,0.1,0.1,0.1))#
+plot(tree, type="fan", lwd=2, show.tip.label=F)#
+#
+#Add points instead of labels#
+tiplabels(pch=16, cex=0.25*svl[tree$tip.label])#
+#
+#Add ancestral states#
+nodelabels(pch=16, cex=0.25*Ancestors$ace)#
+#
+obj <-contMap(tree, svl, plot=F)#
 plot(obj, type="fan", legend=0.7*max(nodeHeights(tree)), sig=2, fsize=c(0.7, 0.9))
 fossilData <-data.frame(svl=log(c(25.4, 32.2, 17.7, 19.7, 24, 31)), tip1=c("Anolis_aliniger", "Anolis_aliniger", "Anolis_occultus", "Anolis_ricordii", "Anolis_cristatellus", "Anolis_occultus"), tip2=c("Anolis_chlorocyanus", "Anolis_coelestinus", "Anolis_hendersoni", "Anolis_cybotes", "Anolis_angusticeps", "Anolis_angusticeps"))
+fossilNodes<-c()#
+nodeN <-c()
+{#
+	for(i in 1:nrow(fossilData))#
+	i <- 1 if(i==1){#
+		print(Ancestors) }#
+		}
+{#
+	for(i in 1:nrow(fossilData))#
+	i <- 1 if(i==1){#
+		print(Ancestors) #
+		}
+fossilNodes<-c()#
+nodeN <-c()
+{#
+	for(i in 1:nrow(fossilData))#
+	i<-1#
+	if(i==1) {#
+		print(Ancestors) #
+		}#
+}
+Node <- fastMRCA(tree, fossilData[i, "tip1"], fossilData[i, "tip2"])#
+fossilNodes[i]<- fossilData[i, "svl"]
+nodeN[i]<-Node
+names(fossilNodes) <-nodeN#
+Ancestors_withFossils <- fastAnc(tree, svl, anc.states=fossilNodes, CI=TRUE, var=TRUE)
+Ancestors_withFossils#
+Ancestors_woFossils <- fastAnc(tree, svl, CI=TRUE, var=TRUE)
+Ancestors_woFossils#
+plot(Ancestors_withFossils$ace, Ancestors_woFossils$ace, xlab='fossils', ylab='no fossils')
+install.packages('geiger')
+library('geiger')
+?fitContinuous
+fitContinuous(tree, svl, model='EB')
+fitContinuous(tree, svl, model='OU')
+fitContinuous(tree, svl, model='BM')
+?fastAnc
